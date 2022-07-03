@@ -4,7 +4,11 @@ import Project from "../components/Project";
 const App = () => (
   <>
     <BusinessCard />
-    <Project name="Minitick" image="images/minitick.png" />
+    <Project
+      name="Minitick"
+      url="https://etrobert.github.io/minitick/"
+      image="images/minitick.png"
+    />
   </>
 );
 
