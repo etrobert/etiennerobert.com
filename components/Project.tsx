@@ -3,13 +3,14 @@ import styles from "./Project.module.css";
 type Props = {
   name: string;
   image: string;
+  url: string;
 };
 
-const Project = ({ name, image }: Props) => (
-  <div>
+const Project = ({ url, name, image }: Props) => (
+  <a href={url} target="_blank">
     <h1 className={styles.name}>{name}</h1>
     <img className={styles.image} src={image} />
-  </div>
+  </a>
 );
 
 export default Project;
