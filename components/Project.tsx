@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Project = ({ url, name, image }: Props) => (
-  <a href={url} target="_blank">
+  <a className={styles.link} href={url} target="_blank">
     <h1 className={styles.name}>{name}</h1>
     <img className={styles.image} src={image} />
   </a>
