@@ -11,7 +11,11 @@ body {
 }
 
 body {
-  background: #0d1117;
+  --color-dark: #0d1117;
+}
+
+body {
+  background: var(--color-dark);
   color: whitesmoke;
   font-family: title;
   font-size: 5vw;

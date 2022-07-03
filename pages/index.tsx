@@ -4,7 +4,7 @@ import Project from "../components/Project";
 const App = () => (
   <>
     <BusinessCard />
-    <Project image="images/minitick.png" />
+    <Project name="Minitick" image="images/minitick.png" />
   </>
 );
 
