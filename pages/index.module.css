@@ -12,4 +12,5 @@
 .projects {
   display: grid;
   gap: 1em;
+  overflow: auto;
 }
