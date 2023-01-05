@@ -18,7 +18,6 @@ body {
   background: var(--color-dark);
   color: whitesmoke;
   font-family: title;
-  font-size: 5vw;
 }
 
 @font-face {
