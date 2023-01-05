@@ -1,4 +1,16 @@
+.container {
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .projects {
   display: grid;
   gap: 1em;
+  overflow: auto;
 }

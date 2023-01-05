@@ -6,7 +6,8 @@ h1 {
 }
 
 html,
-body {
+body,
+#__next {
   height: 100%;
 }
 
@@ -18,7 +19,6 @@ body {
   background: var(--color-dark);
   color: whitesmoke;
   font-family: title;
-  font-size: 5vw;
 }
 
 @font-face {
