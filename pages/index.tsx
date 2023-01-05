@@ -4,7 +4,7 @@ import Project from "../components/Project";
 import styles from "./index.module.css";
 
 const App = () => (
-  <>
+  <div className={styles.container}>
     <BusinessCard />
     <div className={styles.projects}>
       <Project
@@ -18,7 +18,7 @@ const App = () => (
         image="images/taskgraph.png"
       />
     </div>
-  </>
+  </div>
 );
 
 export default App;
