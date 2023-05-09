@@ -1,13 +1,13 @@
 .container {
   display: grid;
   place-content: center;
-  height: 90vh;
+  height: 100%;
+  font-size: min(5vw, 1.5em);
 }
 
 .links {
   display: flex;
-  justify-content: center;
-  gap: 5vw;
+  justify-content: space-between;
 }
 
 .links > a {
