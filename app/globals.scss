@@ -15,7 +15,9 @@ body {
 :root {
   --background: #{colors.$background-dark};
   --high-contrast: #{colors.$high-contrast-dark};
+}
 
+:root {
   background: var(--background);
   color: var(--high-contrast);
 
