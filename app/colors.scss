@@ -3,3 +3,7 @@ $high-contrast-light: #0d1117;
 
 $background-dark: #0d1117;
 $high-contrast-dark: whitesmoke;
+
+@function high-contrast($color-scheme-dark) {
+  @return if($color-scheme-dark, $high-contrast-dark, $high-contrast-light);
+}

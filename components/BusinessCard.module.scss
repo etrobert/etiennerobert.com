@@ -20,13 +20,13 @@
 }
 
 .github-link {
-  background-image: icons.github();
+  background-image: icons.github(true);
 }
 
 .linkedin-link {
-  background-image: icons.linkedin();
+  background-image: icons.linkedin(true);
 }
 
 .instagram-link {
-  background-image: icons.instagram();
+  background-image: icons.instagram(true);
 }
