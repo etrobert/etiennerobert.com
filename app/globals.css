@@ -10,7 +10,7 @@ body {
   height: 100%;
 }
 
-body {
+:root {
   background: #0d1117;
   color: whitesmoke;
   font-size: 5vw;
