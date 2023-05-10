@@ -13,8 +13,11 @@ body {
 }
 
 :root {
-  background: colors.$background-dark;
-  color: colors.$high-contrast-dark;
+  --background: #{colors.$background-dark};
+  --high-contrast: #{colors.$high-contrast-dark};
+
+  background: var(--background);
+  color: var(--high-contrast);
 
   font-size: 5vw;
 }
