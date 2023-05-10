@@ -10,8 +10,15 @@ body {
   height: 100%;
 }
 
+/* Color definitions */
 :root {
-  background: #0d1117;
-  color: whitesmoke;
+  --background: #0d1117;
+  --high-contrast: whitesmoke;
+}
+
+:root {
+  background: var(--background);
+  color: var(--high-contrast);
+
   font-size: 5vw;
 }
