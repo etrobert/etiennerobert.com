@@ -1,6 +1,4 @@
-@use '/app/colors';
-
-@function github($color-scheme-dark) {
+@function github($stroke) {
   @return url('data:image/svg+xml,\
     <svg\
       xmlns="http://www.w3.org/2000/svg"\
@@ -8,7 +6,7 @@
       height="24"\
       viewBox="0 0 24 24"\
       fill="none"\
-      stroke="#{colors.high-contrast($color-scheme-dark)}"\
+      stroke="#{$stroke}"\
       stroke-width="2"\
       stroke-linecap="round"\
       stroke-linejoin="round"\
@@ -25,7 +23,7 @@
   ');
 }
 
-@function linkedin($color-scheme-dark) {
+@function linkedin($stroke) {
   @return url('data:image/svg+xml,\
     <svg\
       xmlns="http://www.w3.org/2000/svg"\
@@ -33,7 +31,7 @@
       height="24"\
       viewBox="0 0 24 24"\
       fill="none"\
-      stroke="#{colors.high-contrast($color-scheme-dark)}"\
+      stroke="#{$stroke}"\
       stroke-width="2"\
       stroke-linecap="round"\
       stroke-linejoin="round"\
@@ -47,7 +45,7 @@
     </svg>');
 }
 
-@function instagram($color-scheme-dark) {
+@function instagram($stroke) {
   @return url('data:image/svg+xml,\
     <svg\
       xmlns="http://www.w3.org/2000/svg"\
@@ -55,7 +53,7 @@
       height="24"\
       viewBox="0 0 24 24"\
       fill="none"\
-      stroke="#{colors.high-contrast($color-scheme-dark)}"\
+      stroke="#{$stroke}"\
       stroke-width="2"\
       stroke-linecap="round"\
       stroke-linejoin="round"\

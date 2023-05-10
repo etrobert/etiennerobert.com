@@ -1,3 +1,4 @@
+@use '/app/colors';
 @use '/app/icons';
 
 .container {
@@ -20,27 +21,27 @@
 }
 
 .github-link {
-  background-image: icons.github(true);
+  background-image: icons.github(colors.$high-contrast-dark);
 }
 
 .linkedin-link {
-  background-image: icons.linkedin(true);
+  background-image: icons.linkedin(colors.$high-contrast-dark);
 }
 
 .instagram-link {
-  background-image: icons.instagram(true);
+  background-image: icons.instagram(colors.$high-contrast-dark);
 }
 
 @media (prefers-color-scheme: light) {
   .github-link {
-    background-image: icons.github(false);
+    background-image: icons.github(colors.$high-contrast-light);
   }
 
   .linkedin-link {
-    background-image: icons.linkedin(false);
+    background-image: icons.linkedin(colors.$high-contrast-light);
   }
 
   .instagram-link {
-    background-image: icons.instagram(false);
+    background-image: icons.instagram(colors.$high-contrast-light);
   }
 }
