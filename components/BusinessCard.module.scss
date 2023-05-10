@@ -30,3 +30,17 @@
 .instagram-link {
   background-image: icons.instagram(true);
 }
+
+@media (prefers-color-scheme: light) {
+  .github-link {
+    background-image: icons.github(false);
+  }
+
+  .linkedin-link {
+    background-image: icons.linkedin(false);
+  }
+
+  .instagram-link {
+    background-image: icons.instagram(false);
+  }
+}

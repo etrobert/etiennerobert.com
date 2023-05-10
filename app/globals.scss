@@ -17,6 +17,13 @@ body {
   --high-contrast: #{colors.$high-contrast-dark};
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #{colors.$background-light};
+    --high-contrast: #{colors.$high-contrast-light};
+  }
+}
+
 :root {
   background: var(--background);
   color: var(--high-contrast);
