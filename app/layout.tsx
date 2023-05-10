@@ -1,6 +1,6 @@
 import { Kalam } from 'next/font/google';
 
-import './globals.css';
+import './globals.scss';
 
 // If loading a variable font, you don't need to specify the font weight
 const kalam = Kalam({
