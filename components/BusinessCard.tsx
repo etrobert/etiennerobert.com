@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './BusinessCard.module.css';
+import styles from './BusinessCard.module.scss';
 
 const BusinessCard = () => (
   <div className={styles.container}>
