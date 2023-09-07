@@ -31,19 +31,11 @@
   }
 }
 
-.linkedin-link {
-  background-image: icons.linkedin(colors.$high-contrast-dark);
-}
-
 .instagram-link {
   background-image: icons.instagram(colors.$high-contrast-dark);
 }
 
 @media (prefers-color-scheme: light) {
-  .linkedin-link {
-    background-image: icons.linkedin(colors.$high-contrast-light);
-  }
-
   .instagram-link {
     background-image: icons.instagram(colors.$high-contrast-light);
   }

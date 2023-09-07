@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './BusinessCard.module.scss';
 import GithubIcon from './icons/GithubIcon';
+import LinkedinIcon from './icons/LinkedinIcon';
 
 const BusinessCard = () => (
   <div className={styles.container}>
@@ -10,10 +11,11 @@ const BusinessCard = () => (
         <GithubIcon />
       </Link>
       <Link
-        className={styles['linkedin-link']}
         target="_blank"
         href="https://www.linkedin.com/in/etienne-robert-dev/"
-      />
+      >
+        <LinkedinIcon />
+      </Link>
       <Link
         className={styles['instagram-link']}
         target="_blank"
