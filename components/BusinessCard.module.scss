@@ -1,5 +1,4 @@
 @use '/app/colors';
-@use '/app/icons';
 
 .heading {
   letter-spacing: -0.025em;
@@ -28,15 +27,5 @@
 
   &:hover {
     opacity: 1;
-  }
-}
-
-.instagram-link {
-  background-image: icons.instagram(colors.$high-contrast-dark);
-}
-
-@media (prefers-color-scheme: light) {
-  .instagram-link {
-    background-image: icons.instagram(colors.$high-contrast-light);
   }
 }
