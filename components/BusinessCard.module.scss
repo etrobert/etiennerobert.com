@@ -22,16 +22,13 @@
   width: 2em;
   height: 2em;
   background-size: contain;
+  color: inherit;
   opacity: 0.8;
   transition: opacity 0.25s ease-in-out;
 
   &:hover {
     opacity: 1;
   }
-}
-
-.github-link {
-  background-image: icons.github(colors.$high-contrast-dark);
 }
 
 .linkedin-link {
@@ -43,10 +40,6 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .github-link {
-    background-image: icons.github(colors.$high-contrast-light);
-  }
-
   .linkedin-link {
     background-image: icons.linkedin(colors.$high-contrast-light);
   }

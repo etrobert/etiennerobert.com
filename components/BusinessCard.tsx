@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import styles from './BusinessCard.module.scss';
+import GithubIcon from './icons/GithubIcon';
 
 const BusinessCard = () => (
   <div className={styles.container}>
     <h1 className={styles.heading}>Étienne Robert</h1>
     <div className={styles.links}>
-      <Link
-        className={styles['github-link']}
-        target="_blank"
-        href="https://github.com/etrobert"
-      />
+      <Link target="_blank" href="https://github.com/etrobert">
+        <GithubIcon />
+      </Link>
       <Link
         className={styles['linkedin-link']}
         target="_blank"
