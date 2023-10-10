@@ -6,19 +6,16 @@ type ThemeValue = 'auto' | 'light' | 'dark';
 
 type InputProps = {
   value: ThemeValue;
-  currentValue: ThemeValue;
-  setTheme: (value: ThemeValue) => void;
 };
 
-function Input({ value, setTheme, currentValue }: InputProps) {
+function Input({ value }: InputProps) {
   return (
     <label>
       <input
         type="radio"
         name="theme"
         value={value}
-        checked={value === currentValue}
-        onChange={() => setTheme(value)}
+        defaultChecked={value === 'auto'}
       />
       {value}
     </label>
@@ -34,12 +31,16 @@ export default function ThemeSwitch() {
   );
 
   return (
-    <fieldset>
-      <legend>Theme</legend>
-
-      <Input value="light" currentValue={theme} setTheme={setTheme} />
-      <Input value="auto" currentValue={theme} setTheme={setTheme} />
-      <Input value="dark" currentValue={theme} setTheme={setTheme} />
-    </fieldset>
+    <form
+      onChange={(event) => {
+        const target = event.target as HTMLInputElement;
+        const value = target.value as ThemeValue;
+        setTheme(value);
+      }}
+    >
+      <Input value="light" />
+      <Input value="auto" />
+      <Input value="dark" />
+    </form>
   );
 }
