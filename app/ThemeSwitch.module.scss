@@ -1,0 +1,25 @@
+.form {
+  bottom: 0;
+  right: 0;
+  margin: 0.5rem 0.5rem;
+  padding: 1px;
+  border: 1px solid var(--high-contrast);
+  border-radius: 0.4rem;
+  position: absolute;
+}
+
+.input {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.label {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+input:checked + .label {
+  background-color: var(--high-contrast);
+  color: var(--background);
+}
