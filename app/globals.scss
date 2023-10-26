@@ -16,12 +16,20 @@ body {
 :root {
   --background: #{colors.$background-dark};
   --high-contrast: #{colors.$high-contrast-dark};
+  &[data-theme='light'] {
+    --background: #{colors.$background-light};
+    --high-contrast: #{colors.$high-contrast-light};
+  }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --background: #{colors.$background-light};
     --high-contrast: #{colors.$high-contrast-light};
+    &[data-theme='dark'] {
+      --background: #{colors.$background-dark};
+      --high-contrast: #{colors.$high-contrast-dark};
+    }
   }
 }
 
