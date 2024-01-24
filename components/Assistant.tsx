@@ -24,9 +24,13 @@ const Assistant = () => {
 
   return (
     <div className={style.container}>
-      <ol>
+      <ol className={style.messages}>
         {messages.map((message, index) => (
-          <li key={index}>{message.content}</li>
+          <li key={index}>
+            {message.role}
+            <br /> {/* TODO Remove br */}
+            {message.content}
+          </li>
         ))}
       </ol>
       <form
@@ -44,7 +48,11 @@ const Assistant = () => {
           triggerCall(newMessages);
         }}
       >
-        <input type="text" />
+        <input
+          className={style.input}
+          type="text"
+          placeholder="Message the assistant..."
+        />
       </form>
     </div>
   );
