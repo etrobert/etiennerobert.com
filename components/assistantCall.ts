@@ -9,7 +9,7 @@ async function assistantCall() {
     messages: [{ role: 'system', content: 'You are a helpful assistant.' }],
     model: 'gpt-4',
   });
-  return result.choices[0].message.content;
+  return result.choices[0].message;
 }
 
 export { assistantCall };
