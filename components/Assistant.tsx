@@ -36,6 +36,7 @@ const Assistant = () => {
         ))}
       </ol>
       <form
+        className={style.form}
         onSubmit={(event) => {
           event.preventDefault();
           if (inputRef.current === null) return;
