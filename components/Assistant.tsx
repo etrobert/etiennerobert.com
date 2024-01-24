@@ -4,24 +4,22 @@ import { useEffect, useState } from 'react';
 import { assistantCall } from './assistantCall';
 import style from './Assistant.module.scss';
 
-type Message = {
-  role: 'user' | 'assistant';
-  content: string | null;
-};
+import type { Message } from './assistantCall';
 
 const Assistant = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'system', content: 'You are a helpful assistant.' },
+  ]);
 
-  const addMessage = (message: Message) => {
-    setMessages((messages) => [...messages, message]);
-  };
-
-  const triggerCall = async () => {
-    addMessage(await assistantCall());
+  const triggerCall = async (messages: Message[]) => {
+    const result = await assistantCall(messages);
+    if (result.content === null) return;
+    // @ts-expect-error TS doesn't seem to see that we test for it
+    setMessages((messages) => [...messages, result]);
   };
 
   useEffect(() => {
-    triggerCall();
+    triggerCall(messages);
   }, []);
 
   return (
@@ -34,12 +32,16 @@ const Assistant = () => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          addMessage({
-            role: 'user',
-            // @ts-expect-error TMP
-            content: event.currentTarget.elements[0].value,
-          });
-          triggerCall();
+          const newMessages = [
+            ...messages,
+            {
+              role: 'user' as const,
+              // @ts-expect-error TMP
+              content: event.currentTarget.elements[0].value,
+            },
+          ];
+          setMessages(newMessages);
+          triggerCall(newMessages);
         }}
       >
         <input type="text" />
