@@ -22,6 +22,7 @@
   "homepage": "https://github.com/etrobert/etiennerobert.com#readme",
   "dependencies": {
     "next": "^13.4.1",
+    "openai": "^4.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
