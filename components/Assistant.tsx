@@ -8,9 +8,10 @@ const Assistant = () => {
   const [messages, setMessages] = useState<string[]>([]);
 
   useEffect(() => {
-    assistantCall().then((result) =>
-      setMessages((messages) => [...messages, JSON.stringify(result)])
-    );
+    assistantCall().then((result) => {
+      if (result === null) return;
+      setMessages((messages) => [...messages, result]);
+    });
   }, []);
 
   return (
