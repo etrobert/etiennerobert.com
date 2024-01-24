@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { assistantCall } from './assistantCall';
 import style from './Assistant.module.scss';
 
 import type { Message } from './assistantCall';
 
 const Assistant = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [messages, setMessages] = useState<Message[]>([
     { role: 'system', content: 'You are a helpful assistant.' },
   ]);
@@ -36,19 +38,22 @@ const Assistant = () => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          if (inputRef.current === null) return;
+
           const newMessages = [
             ...messages,
             {
               role: 'user' as const,
-              // @ts-expect-error TMP
-              content: event.currentTarget.elements[0].value,
+              content: inputRef.current.value,
             },
           ];
+          inputRef.current.value = '';
           setMessages(newMessages);
           triggerCall(newMessages);
         }}
       >
         <input
+          ref={inputRef}
           className={style.input}
           type="text"
           placeholder="Message the assistant..."
