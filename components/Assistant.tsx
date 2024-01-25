@@ -97,13 +97,15 @@ const Assistant = () => {
   return (
     <div className={style.container}>
       <ol className={style.messages}>
-        {messages.map((message, index) => (
-          <li key={index}>
-            {message.role}
-            <br /> {/* TODO Remove br */}
-            {message.content}
-          </li>
-        ))}
+        {messages
+          .filter(({ role }) => role !== 'system')
+          .map((message, index) => (
+            <li key={index}>
+              {message.role}
+              <br /> {/* TODO Remove br */}
+              {message.content}
+            </li>
+          ))}
       </ol>
       <form
         className={style.form}
