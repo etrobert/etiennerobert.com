@@ -20,10 +20,6 @@ const Assistant = () => {
     setMessages((messages) => [...messages, result]);
   };
 
-  useEffect(() => {
-    triggerCall(messages);
-  }, []);
-
   return (
     <div className={style.container}>
       <ol className={style.messages}>
