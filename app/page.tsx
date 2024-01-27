@@ -3,8 +3,8 @@ import BusinessCard from '../components/BusinessCard';
 
 const App = () => (
   <>
-    <Assistant />
     <BusinessCard />
+    <Assistant />
   </>
 );
 
