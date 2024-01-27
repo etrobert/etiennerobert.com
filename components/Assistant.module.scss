@@ -6,7 +6,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
 }
 
 .messages {
@@ -27,4 +27,5 @@
   border: 1px solid var(--high-contrast);
   padding: 0.5rem 0.75rem;
   outline: none;
+  font-size: inherit;
 }
