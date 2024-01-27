@@ -29,7 +29,7 @@ const Assistant = () => {
           .filter(({ role }) => role !== 'system')
           .map((message, index) => (
             <li key={index}>
-              {message.role}
+              {message.role === 'user' ? 'You' : 'Assistant'}
               <br /> {/* TODO Remove br */}
               {message.content}
             </li>
