@@ -5,6 +5,8 @@
   padding: 2rem;
   display: grid;
   grid-template-rows: 1fr auto;
+  gap: 0.5rem;
+  font-size: 0.85rem;
 }
 
 .messages {
