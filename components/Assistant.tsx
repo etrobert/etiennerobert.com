@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { assistantCall } from './assistantCall';
 import style from './Assistant.module.scss';
 
@@ -10,6 +10,7 @@ import system from './system';
 
 const Assistant = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const singletonRef = useRef<HTMLDivElement>(null);
 
   const [messages, setMessages] = useState<Message[]>([
     { role: 'system', content: system },
@@ -21,6 +22,10 @@ const Assistant = () => {
     // @ts-expect-error TS doesn't seem to see that we test for it
     setMessages((messages) => [...messages, result]);
   };
+
+  useEffect(() => {
+    singletonRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div className={style.container}>
@@ -34,6 +39,7 @@ const Assistant = () => {
               {message.content}
             </li>
           ))}
+        <div ref={singletonRef} />
       </ol>
       <form
         className={style.form}
