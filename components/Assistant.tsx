@@ -24,6 +24,7 @@ const Assistant = () => {
   };
 
   useEffect(() => {
+    if (messages.length === 1) return; // Avoid scrolling on first render
     singletonRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
