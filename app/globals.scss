@@ -19,12 +19,14 @@ body {
 :root {
   --background: #{colors.$background-dark};
   --high-contrast: #{colors.$high-contrast-dark};
+  --low-contrast: #{colors.$low-contrast-dark};
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --background: #{colors.$background-light};
     --high-contrast: #{colors.$high-contrast-light};
+    --low-contrast: #{colors.$low-contrast-light};
   }
 }
 
