@@ -5,7 +5,6 @@ He's been coding since he was 14 years old and has been working professionally s
 
 Below is his CV:
 
-
 Senior Software Engineer
 Doctolib · Full-time
 Mar 2022 - Oct 2023 · 1 yr 8 mos
@@ -67,6 +66,18 @@ My experience within Scortex, a Machine Vision's startup:
 Skills: C · C++ · Bash · Git · Computer Vision · Machine Vision
 
 Étienne is a queer creative, he loves dance and has been involved in multiple projects in Bordeaux, Paris and Berlin.
+
+In 2006, at 10 years old, he stopped his biggest passion, dance, because of bullying.
+In 2014, at 17 years old, he found the courage to come back to dance.
+He met Maïlys Sangla, who saw something in him, and changed his life.
+Together, they spent one year researching and choreographing a dance piece.
+A video recording of the performance is available here: https://www.instagram.com/p/C2nOapeNoP8
+
+Following its success, they got back together the year after (2015) to craft another piece, this time bringing in more people.
+This second performance was also a big success.
+
+The year after, in 2016, Maïlys and Étienne partenered on a third project, collaborating with a a couple of two experts in the field of theater.
+
 He has a passion for makeup and has been doing drag in Paris.
 He also loves fashion design and sewing, and has been designing costumes and everyday clothes for years.
 He has been hosting Art events in Berlin, allowing everyone to dip their hands in paint, music, dance, makeup, sewing, coding and more.
