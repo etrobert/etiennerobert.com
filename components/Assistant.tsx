@@ -29,32 +29,35 @@ const Assistant = () => {
   }, [messages]);
 
   return (
-    <div className={style.container}>
-      <ol className={style.messages}>
-        {messages
-          .filter(({ role }) => role !== 'system')
-          .map((message, index) => (
-            <li key={index}>
-              {message.role === 'user' ? 'You' : 'Assistant'}
-              <br /> {/* TODO Remove br */}
-              {message.content}
-            </li>
-          ))}
-        <div ref={singletonRef} />
-      </ol>
-      <AssistantInput
-        onInput={(message) => {
-          const newMessages = [
-            ...messages,
-            {
-              role: 'user' as const,
-              content: message,
-            },
-          ];
-          setMessages(newMessages);
-          triggerCall(newMessages);
-        }}
-      />
+    // TODO: Remove outerContainer that exists only for style
+    <div className={style.outerContainer}>
+      <div className={style.container}>
+        <ol className={style.messages}>
+          {messages
+            .filter(({ role }) => role !== 'system')
+            .map((message, index) => (
+              <li key={index}>
+                {message.role === 'user' ? 'You' : 'Assistant'}
+                <br /> {/* TODO Remove br */}
+                {message.content}
+              </li>
+            ))}
+          <div ref={singletonRef} />
+        </ol>
+        <AssistantInput
+          onInput={(message) => {
+            const newMessages = [
+              ...messages,
+              {
+                role: 'user' as const,
+                content: message,
+              },
+            ];
+            setMessages(newMessages);
+            triggerCall(newMessages);
+          }}
+        />
+      </div>
     </div>
   );
 };

@@ -1,12 +1,19 @@
 @use '/app/colors';
 
-.container {
+.outerContainer {
+  padding: 2rem;
   height: 100%;
+}
+
+.container {
   padding: 2rem;
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 0.5rem;
   font-size: 1.25rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 0.5rem;
+  height: 100%;
 }
 
 .messages {
