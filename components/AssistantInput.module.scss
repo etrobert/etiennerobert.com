@@ -1,0 +1,12 @@
+.form {
+  display: grid;
+}
+
+.input {
+  border-radius: 0.5rem;
+  background-color: inherit;
+  border: 1px solid var(--low-contrast);
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  font-size: inherit;
+}

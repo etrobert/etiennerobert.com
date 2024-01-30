@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import AssistantInput from './AssistantInput';
 import { assistantCall } from './assistantCall';
 import style from './Assistant.module.scss';
 
@@ -9,7 +10,6 @@ import type { Message } from './assistantCall';
 import system from './system';
 
 const Assistant = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
   const singletonRef = useRef<HTMLDivElement>(null);
 
   const [messages, setMessages] = useState<Message[]>([
@@ -42,31 +42,19 @@ const Assistant = () => {
           ))}
         <div ref={singletonRef} />
       </ol>
-      <form
-        className={style.form}
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (inputRef.current === null) return;
-
+      <AssistantInput
+        onInput={(message) => {
           const newMessages = [
             ...messages,
             {
               role: 'user' as const,
-              content: inputRef.current.value,
+              content: message,
             },
           ];
-          inputRef.current.value = '';
           setMessages(newMessages);
           triggerCall(newMessages);
         }}
-      >
-        <input
-          ref={inputRef}
-          className={style.input}
-          type="text"
-          placeholder="Message the assistant..."
-        />
-      </form>
+      />
     </div>
   );
 };
