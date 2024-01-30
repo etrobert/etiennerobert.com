@@ -16,8 +16,12 @@ const Assistant = () => {
     { role: 'system', content: system },
   ]);
 
+  const [loadingState, setLoadingState] = useState<'idle' | 'loading'>('idle');
+
   const triggerCall = async (messages: Message[]) => {
+    setLoadingState('loading');
     const result = await assistantCall(messages);
+    setLoadingState('idle');
     if (result.content === null) return;
     // @ts-expect-error TS doesn't seem to see that we test for it
     setMessages((messages) => [...messages, result]);
@@ -42,6 +46,7 @@ const Assistant = () => {
                 {message.content}
               </li>
             ))}
+          {loadingState === 'loading' && 'loading...'}
           <div ref={singletonRef} />
         </ol>
         <AssistantInput
