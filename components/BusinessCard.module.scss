@@ -19,12 +19,6 @@
   }
 }
 
-.links {
-  display: flex;
-  justify-content: center;
-  gap: 5vw;
-}
-
 .portrait {
   grid-area: portrait;
   border: 3px solid var(--high-contrast);

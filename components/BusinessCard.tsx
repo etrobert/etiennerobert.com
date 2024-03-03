@@ -25,7 +25,7 @@ const BusinessCard = () => (
       <JustifiedText className={'text-[0.83em]'}>
         Software Developer & Queer Creative
       </JustifiedText>
-      <div className={styles.links}>
+      <div className={'flex justify-center gap-[5vw]'}>
         <IconLink href="https://github.com/etrobert" icon={<GithubIcon />} />
         <IconLink
           href="https://www.linkedin.com/in/etienne-robert-dev/"
