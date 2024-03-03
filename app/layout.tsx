@@ -1,5 +1,5 @@
 import { defaultFont } from './fonts';
-import './globals.scss';
+import 'styles/globals.scss';
 
 export const metadata = {
   title: 'Étienne Robert',
