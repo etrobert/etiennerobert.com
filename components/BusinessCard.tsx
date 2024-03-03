@@ -18,7 +18,7 @@ const BusinessCard = () => (
     />
     <div>
       <h1 className={`${styles.heading} ${title.className}`}>Étienne Robert</h1>
-      <JustifiedText className={styles.subtext}>
+      <JustifiedText className={'text-[0.79em]'}>
         Software Developer & Queer Creative
       </JustifiedText>
       <div className={styles.links}>
