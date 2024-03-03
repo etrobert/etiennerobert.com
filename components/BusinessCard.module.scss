@@ -1,22 +1,5 @@
 @use '/styles/colors';
 
-.container {
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: center;
-  height: 100%;
-  font-size: 1.5rem;
-}
-
-@media screen and (min-width: 60rem) {
-  .container {
-    flex-direction: row-reverse;
-    gap: 6rem;
-    font-size: 2rem;
-  }
-}
-
 .portrait {
   border: 3px solid var(--high-contrast);
   border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;

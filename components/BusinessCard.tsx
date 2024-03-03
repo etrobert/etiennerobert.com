@@ -8,7 +8,12 @@ import JustifiedText from './JustifiedText';
 import IconLink from './IconLink';
 
 const BusinessCard = () => (
-  <div className={styles.container}>
+  <div
+    className={
+      'flex flex-col place-content-center place-items-center h-full ' +
+      'text-[1.5rem] lg:text-[2rem] lg:flex-row-reverse lg:gap-24'
+    }
+  >
     <Image
       src="/portrait.jpeg"
       className={styles.portrait}
