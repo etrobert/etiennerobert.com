@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import styles from './JustifiedText.module.scss';
 
 type Props = {
   children: ReactNode;
@@ -12,9 +11,9 @@ type Props = {
  * Source: https://stackoverflow.com/a/22950810
  */
 const JustifiedText = ({ children, className }: Props) => (
-  <p className={[styles.paragraph, className].join(' ')}>
+  <p className={['text-justify', className].join(' ')}>
     {children}
-    <span className={styles.span}> </span>
+    <span className={'w-full inline-block'}> </span>
   </p>
 );
 
