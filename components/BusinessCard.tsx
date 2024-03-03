@@ -17,8 +17,12 @@ const BusinessCard = () => (
       alt="Portrait of the author"
     />
     <div>
-      <h1 className={`${styles.heading} ${title.className}`}>Étienne Robert</h1>
-      <JustifiedText className={'text-[0.79em]'}>
+      <h1
+        className={`text-[2.1em] tracking-tight leading-none ${title.className}`}
+      >
+        Étienne Robert
+      </h1>
+      <JustifiedText className={'text-[0.83em]'}>
         Software Developer & Queer Creative
       </JustifiedText>
       <div className={styles.links}>
