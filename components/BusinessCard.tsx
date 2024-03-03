@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './BusinessCard.module.scss';
 import GithubIcon from './icons/GithubIcon';
@@ -6,6 +5,7 @@ import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import { title } from '../app/fonts';
 import JustifiedText from './JustifiedText';
+import IconLink from './IconLink';
 
 const BusinessCard = () => (
   <div className={styles.container}>
@@ -26,18 +26,15 @@ const BusinessCard = () => (
         Software Developer & Queer Creative
       </JustifiedText>
       <div className={styles.links}>
-        <Link target="_blank" href="https://github.com/etrobert">
-          <GithubIcon />
-        </Link>
-        <Link
-          target="_blank"
+        <IconLink href="https://github.com/etrobert" icon={<GithubIcon />} />
+        <IconLink
           href="https://www.linkedin.com/in/etienne-robert-dev/"
-        >
-          <LinkedinIcon />
-        </Link>
-        <Link target="_blank" href="https://www.instagram.com/etrobert_">
-          <InstagramIcon />
-        </Link>
+          icon={<LinkedinIcon />}
+        />
+        <IconLink
+          href="https://www.instagram.com/etrobert_"
+          icon={<InstagramIcon />}
+        />
       </div>
     </div>
   </div>
