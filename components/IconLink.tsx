@@ -8,7 +8,11 @@ type Props = {
 };
 
 const IconLink = ({ href, icon }: Props) => (
-  <Link target="_blank" href={href}>
+  <Link
+    target="_blank"
+    href={href}
+    className="w-[2em] opacity-80 hover:opacity-100 transition-opacity duration-300"
+  >
     {icon}
   </Link>
 );

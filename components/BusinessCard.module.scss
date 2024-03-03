@@ -25,20 +25,6 @@
   gap: 5vw;
 }
 
-.links > a {
-  display: block;
-  width: 2em;
-  height: 2em;
-  background-size: contain;
-  color: inherit;
-  opacity: 0.8;
-  transition: opacity 0.25s ease-in-out;
-
-  &:hover {
-    opacity: 1;
-  }
-}
-
 .portrait {
   grid-area: portrait;
   border: 3px solid var(--high-contrast);
