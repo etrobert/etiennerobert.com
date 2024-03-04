@@ -1,11 +1,10 @@
-import Image from 'next/image';
-import styles from './BusinessCard.module.scss';
 import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import { title } from '../app/fonts';
 import JustifiedText from './JustifiedText';
 import IconLink from './IconLink';
+import Portrait from './Portrait';
 
 const BusinessCard = () => (
   <div
@@ -14,16 +13,7 @@ const BusinessCard = () => (
       'text-[1.5rem] lg:text-[2rem] lg:flex-row-reverse lg:gap-24'
     }
   >
-    <Image
-      src="/portrait.jpeg"
-      className={[
-        styles.portrait,
-        'border-2 border-stone-900 dark:border-stone-50',
-      ].join(' ')}
-      width={1365 / 5}
-      height={2048 / 5}
-      alt="Portrait of the author"
-    />
+    <Portrait />
     <div>
       <h1
         className={`text-[2.1em] tracking-tight leading-none ${title.className}`}
