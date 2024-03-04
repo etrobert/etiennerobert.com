@@ -1,28 +1,3 @@
-@use 'colors';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #{colors.$background-dark};
-  --high-contrast: #{colors.$high-contrast-dark};
-  --low-contrast: #{colors.$low-contrast-dark};
-  --surface-1-background: #{colors.$low-contrast-dark};
-  --surface-1-low-contrast: #{colors.$medium-contrast-dark};
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #{colors.$background-light};
-    --high-contrast: #{colors.$high-contrast-light};
-    --low-contrast: #{colors.$low-contrast-light};
-    --surface-1-background: #{colors.$background-light};
-    --surface-1-low-contrast: #{colors.$low-contrast-light};
-  }
-}
-
-:root {
-  background: var(--background);
-  color: var(--high-contrast);
-}

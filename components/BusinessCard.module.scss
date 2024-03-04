@@ -1,7 +1,4 @@
-@use '/styles/colors';
-
 .portrait {
-  border: 3px solid var(--high-contrast);
   border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
   animation: morph 8s ease-in-out infinite;
 }
