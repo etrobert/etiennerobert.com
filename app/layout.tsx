@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={defaultFont.className}>
-      <body>{children}</body>
+    <html lang="en" className={[defaultFont.className, 'h-full'].join(' ')}>
+      <body className="h-full">{children}</body>
     </html>
   );
 }

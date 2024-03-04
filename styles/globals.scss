@@ -4,11 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  height: 100%;
-}
-
 :root {
   --background: #{colors.$background-dark};
   --high-contrast: #{colors.$high-contrast-dark};
