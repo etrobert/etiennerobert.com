@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "next build",
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint": "eslint app/"
   },
   "repository": {
     "type": "git",
