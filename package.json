@@ -33,6 +33,7 @@
     "@types/react": "^18.2.6",
     "autoprefixer": "^10.4.18",
     "eslint": "^8.57.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.1.0",
     "postcss": "^8.4.35",
