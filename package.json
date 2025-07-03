@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/etrobert/etiennerobert.com#readme",
   "dependencies": {
-    "next": "^15.3.2"
+    "next": "^15.3.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
