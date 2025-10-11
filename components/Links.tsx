@@ -4,7 +4,7 @@ import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 
 const Links = () => (
-  <div className={'flex justify-center gap-[5vw]'}>
+  <div className="flex justify-center gap-[5vw]">
     <IconLink
       label="Github Profile"
       href="https://github.com/etrobert"

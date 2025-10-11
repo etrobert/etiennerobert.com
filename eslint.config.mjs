@@ -32,5 +32,9 @@ export default defineConfig([
         version: 'detect',
       },
     },
+
+    rules: {
+      'react/jsx-curly-brace-presence': 'error',
+    },
   },
 ]);
