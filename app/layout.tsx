@@ -27,7 +27,7 @@ export default function RootLayout({
     >
       <body className="h-full">
         {blogEnabled && <Navigation />}
-        <div className="pt-8 h-full">{children}</div>
+        <div className="h-full pt-8">{children}</div>
       </body>
     </html>
   );

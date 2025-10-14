@@ -12,7 +12,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await getPostBySlug(slug);
 
   return (
-    <article className="grid gap-2 p-8 max-w-4xl mx-auto">
+    <article className="mx-auto grid max-w-4xl gap-2 p-8">
       <header>
         <time className="text-stone-600 dark:text-stone-400">
           {post.date.toLocaleDateString('en-US', {

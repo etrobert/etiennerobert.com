@@ -1,7 +1,7 @@
 import { Link } from './Link';
 
 const Navigation = () => (
-  <nav className="flex gap-4 text-xl fixed px-12 py-8">
+  <nav className="fixed flex gap-4 px-12 py-8 text-xl">
     <Link href="/" className="font-bold">
       HOME
     </Link>

@@ -5,7 +5,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="grid gap-8 p-8 max-w-4xl mx-auto">
+    <div className="mx-auto grid max-w-4xl gap-8 p-8">
       <h1 className="text-4xl font-bold">Blog</h1>
       <div>
         {posts.map((post) => (
