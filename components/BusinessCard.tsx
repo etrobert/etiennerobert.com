@@ -4,7 +4,7 @@ import Portrait from './Portrait';
 const BusinessCard = () => (
   <div
     className={
-      'flex flex-col place-content-center place-items-center h-full ' +
+      'flex h-full flex-col place-content-center place-items-center ' +
       'lg:flex-row-reverse lg:gap-24'
     }
   >

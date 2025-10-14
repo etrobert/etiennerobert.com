@@ -12,7 +12,7 @@ const IconLink = ({ href, icon, label }: Props) => (
   <Link
     target="_blank"
     href={href}
-    className="w-[2em] opacity-80 hover:opacity-100 transition-opacity duration-300"
+    className="w-[2em] opacity-80 transition-opacity duration-300 hover:opacity-100"
     aria-label={label}
   >
     {icon}

@@ -13,7 +13,7 @@ type Props = {
 const JustifiedText = ({ children, className }: Props) => (
   <p className={['text-justify', className].join(' ')}>
     {children}
-    <span className="w-full inline-block"> </span>
+    <span className="inline-block w-full"> </span>
   </p>
 );
 
