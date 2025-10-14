@@ -1,1 +1,1 @@
-export const blogEnabled: boolean = true;
+export const blogEnabled: boolean = false;
