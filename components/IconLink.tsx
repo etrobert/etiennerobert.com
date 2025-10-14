@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from './Link';
 
 import type { ReactNode } from 'react';
 
@@ -9,12 +9,7 @@ type Props = {
 };
 
 const IconLink = ({ href, icon, label }: Props) => (
-  <Link
-    target="_blank"
-    href={href}
-    className="w-[2em] opacity-80 transition-opacity duration-300 hover:opacity-100"
-    aria-label={label}
-  >
+  <Link target="_blank" href={href} className="w-[2em]" aria-label={label}>
     {icon}
   </Link>
 );
