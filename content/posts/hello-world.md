@@ -1,6 +1,6 @@
 ---
 title: Hello World
-date: 2025-01-15
+date: 2025-10-14
 excerpt: My first blog post exploring web development and creative coding.
 ---
 
