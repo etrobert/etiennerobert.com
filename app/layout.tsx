@@ -1,5 +1,7 @@
 import { defaultFont } from './fonts';
 import './globals.scss';
+import Navigation from '../components/Navigation';
+import { blogEnabled } from '../components/featureFlags';
 
 export const metadata = {
   title: 'Étienne Robert',
@@ -23,7 +25,10 @@ export default function RootLayout({
         'dark:bg-stone-900 dark:text-stone-50',
       ].join(' ')}
     >
-      <body className="h-full">{children}</body>
+      <body className="h-full">
+        {blogEnabled && <Navigation />}
+        <div className="pt-8 h-full">{children}</div>
+      </body>
     </html>
   );
 }

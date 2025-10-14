@@ -26,7 +26,12 @@
   "homepage": "https://github.com/etrobert/etiennerobert.com#readme",
   "dependencies": {
     "next": "^15.5.4",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
