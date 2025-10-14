@@ -8,7 +8,7 @@ export const Link = ({
 }: ComponentProps<typeof NextLink>) => (
   <NextLink
     className={
-      'opacity-80 hover:opacity-100 transition-opacity duration-300 ' +
+      'opacity-80 transition-opacity duration-300 hover:opacity-100 ' +
       className
     }
     {...props}
