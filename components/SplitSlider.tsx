@@ -7,21 +7,13 @@ import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
-  handleRef: React.RefObject<HTMLDivElement | null>;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
 };
 
-const Handle = ({
-  containerRef,
-  handleRef,
-  left,
-  onChange,
-  valuenow,
-}: HandleProps) => (
+const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
   <div
-    ref={handleRef}
     role="slider"
     aria-label="Drag to reveal more of each side"
     aria-valuenow={valuenow}
@@ -54,26 +46,23 @@ const Handle = ({
 
 const SplitSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const handleRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0.5);
 
   useEffect(() => {
     const step = 0.05;
     const onKeyDown = (event: KeyboardEvent) => {
-      const active = document.activeElement;
-      const tag = active?.tagName.toLowerCase();
+      const tag = document.activeElement?.tagName.toLowerCase();
       if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
-      const handleFocused = active === handleRef.current;
       if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
         event.preventDefault();
         setPos((p) => Math.max(0.1, p - step));
       } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
         event.preventDefault();
         setPos((p) => Math.min(0.9, p + step));
-      } else if (handleFocused && event.key === 'Home') {
+      } else if (event.key === 'Home') {
         event.preventDefault();
         setPos(0.1);
-      } else if (handleFocused && event.key === 'End') {
+      } else if (event.key === 'End') {
         event.preventDefault();
         setPos(0.9);
       }
@@ -143,7 +132,6 @@ const SplitSlider = () => {
 
       <Handle
         containerRef={containerRef}
-        handleRef={handleRef}
         left={devPct}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
