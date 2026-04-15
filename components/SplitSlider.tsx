@@ -4,6 +4,7 @@ import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
+import MailIcon from './icons/MailIcon';
 
 const MIN_POS = 0.05;
 const MAX_POS = 0.95;
@@ -141,6 +142,11 @@ const SplitSlider = () => {
             Dance
           </h2>
           <div className="flex gap-4">
+            <IconLink
+              label="Mail"
+              href="mailto:etiennerobert33@gmail.com"
+              icon={<MailIcon />}
+            />
             <IconLink
               label="Instagram Profile"
               href="https://www.instagram.com/thesoft.emperor"
