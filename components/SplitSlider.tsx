@@ -62,8 +62,8 @@ const SplitSlider = () => {
         style={{ width: devPct }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
-          <h2 className="text-4xl font-extrabold tracking-tight">Software</h2>
-          <p className="text-sm tracking-wide opacity-50">low level & web dev</p>
+          <h1 className="text-4xl font-extrabold tracking-tight">Étienne Robert</h1>
+          <h2 className="text-xl tracking-wide opacity-70">Software</h2>
           <div className="flex gap-4">
             <IconLink
               label="Github Profile"
@@ -85,8 +85,8 @@ const SplitSlider = () => {
         style={{ width: creativePct }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
-          <h2 className="text-4xl font-extrabold tracking-tight">Dance</h2>
-          <p className="text-sm tracking-wide opacity-50">dance & aerials</p>
+          <h1 className="text-4xl font-extrabold tracking-tight">Étienne Robert</h1>
+          <h2 className="text-xl tracking-wide opacity-70">Dance</h2>
           <div className="flex gap-4">
             <IconLink
               label="Instagram Profile"
