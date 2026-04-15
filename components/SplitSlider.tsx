@@ -8,21 +8,21 @@ import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 const MIN_POS = 0.1;
 const MAX_POS = 0.9;
 
+declare module 'csstype' {
+  interface Properties {
+    '--left'?: string;
+    '--w'?: string;
+  }
+}
+
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
-  className?: string;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
 };
 
-const Handle = ({
-  containerRef,
-  className,
-  left,
-  onChange,
-  valuenow,
-}: HandleProps) => (
+const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
   <div
     role="slider"
     aria-label="Drag to reveal more of each side"
@@ -30,8 +30,8 @@ const Handle = ({
     aria-valuemin={MIN_POS * 100}
     aria-valuemax={MAX_POS * 100}
     tabIndex={0}
-    className={`absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh] ${className ?? ''}`}
-    style={{ left }}
+    className="absolute inset-y-0 [left:var(--left)] z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh] lg:left-1/2 lg:cursor-default"
+    style={{ '--left': left }}
     onPointerDown={(event) => {
       event.currentTarget.setPointerCapture(event.pointerId);
     }}
@@ -46,7 +46,7 @@ const Handle = ({
     }}
   >
     <div className="absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white opacity-60" />
-    <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg">
+    <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg lg:hidden">
       <div className="h-5 w-5">
         <ArrowsHorizontalIcon />
       </div>
@@ -91,15 +91,15 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-clip text-[#f5e6d3] bg-fixed lg:static lg:!w-1/2 lg:bg-scroll"
+        className="absolute top-0 left-0 h-full [width:var(--w)] overflow-clip bg-fixed text-[#f5e6d3] lg:static lg:w-1/2 lg:bg-scroll"
         style={{
-          width: devPct,
+          '--w': devPct,
           backgroundImage: 'url(/code.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem] lg:relative lg:inset-auto lg:w-full lg:h-full">
+        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
@@ -123,15 +123,15 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-clip text-[#d4d4d4] bg-fixed lg:static lg:!w-1/2 lg:bg-scroll"
+        className="absolute top-0 right-0 h-full [width:var(--w)] overflow-clip bg-fixed text-[#d4d4d4] lg:static lg:w-1/2 lg:bg-scroll"
         style={{
-          width: creativePct,
+          '--w': creativePct,
           backgroundImage: 'url(/dance.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem] lg:relative lg:inset-auto lg:w-full lg:h-full">
+        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
@@ -150,7 +150,6 @@ const SplitSlider = () => {
 
       <Handle
         containerRef={containerRef}
-        className="lg:hidden"
         left={devPct}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
