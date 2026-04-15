@@ -32,13 +32,10 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-hidden"
-        style={{ width: devPct, background: '#1a1a1a', color: '#f0f0f0' }}
+        className="absolute top-0 left-0 h-full overflow-hidden bg-[#1a1a1a] text-[#f0f0f0]"
+        style={{ width: devPct }}
       >
-        <div
-          className="absolute inset-y-0 flex flex-col items-center justify-center gap-3"
-          style={{ width: '100vw', left: 0 }}
-        >
+        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
           <h2 className="text-4xl font-extrabold tracking-tight">Software</h2>
           <p className="text-sm tracking-wide opacity-50">
             dev work & open source
@@ -48,13 +45,10 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-hidden"
-        style={{ width: creativePct, background: '#f5e6d3', color: '#2a1a0e' }}
+        className="absolute top-0 right-0 h-full overflow-hidden bg-[#f5e6d3] text-[#2a1a0e]"
+        style={{ width: creativePct }}
       >
-        <div
-          className="absolute inset-y-0 flex flex-col items-center justify-center gap-3"
-          style={{ width: '100vw', right: 0 }}
-        >
+        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
           <h2 className="text-4xl font-extrabold tracking-tight">Creative</h2>
           <p className="text-sm tracking-wide opacity-50">dance & queer art</p>
         </div>
@@ -68,15 +62,12 @@ const SplitSlider = () => {
         aria-valuemin={10}
         aria-valuemax={90}
         tabIndex={0}
-        className="absolute top-0 bottom-0 z-10 flex cursor-col-resize items-center justify-center touch-none"
-        style={{ left: devPct, transform: 'translateX(-50%)', width: '44px' }}
+        className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-center justify-center"
+        style={{ left: devPct }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
       >
-        <div
-          className="absolute inset-y-0 bg-white opacity-60"
-          style={{ width: '3px', left: '50%', transform: 'translateX(-50%)' }}
-        />
+        <div className="absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white opacity-60" />
         <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm text-neutral-500 shadow-lg">
           ⇔
         </div>
