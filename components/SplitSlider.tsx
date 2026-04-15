@@ -5,8 +5,8 @@ import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
-const MIN_POS = 0.1;
-const MAX_POS = 0.9;
+const MIN_POS = 0.05;
+const MAX_POS = 0.95;
 
 declare module 'csstype' {
   interface Properties {
