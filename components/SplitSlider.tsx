@@ -19,7 +19,7 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     aria-valuemin={10}
     aria-valuemax={90}
     tabIndex={0}
-    className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33%]"
+    className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh]"
     style={{ left }}
     onPointerDown={(event) => {
       event.currentTarget.setPointerCapture(event.pointerId);
