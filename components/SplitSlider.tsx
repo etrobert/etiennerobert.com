@@ -68,7 +68,7 @@ const SplitSlider = () => {
         aria-valuemin={10}
         aria-valuemax={90}
         tabIndex={0}
-        className="absolute top-0 bottom-0 z-10 flex cursor-col-resize items-center justify-center"
+        className="absolute top-0 bottom-0 z-10 flex cursor-col-resize items-center justify-center touch-none"
         style={{ left: devPct, transform: 'translateX(-50%)', width: '44px' }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
