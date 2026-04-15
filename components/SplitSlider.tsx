@@ -13,13 +13,13 @@ const SplitSlider = () => {
     setPos(p);
   }, []);
 
-  const onPointerDown = (e: React.PointerEvent) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
+  const onPointerDown = (event: React.PointerEvent) => {
+    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (e.buttons === 0) return;
-    updatePos(e.clientX);
+  const onPointerMove = (event: React.PointerEvent) => {
+    if (event.buttons === 0) return;
+    updatePos(event.clientX);
   };
 
   const devPct = `${pos * 100}%`;
