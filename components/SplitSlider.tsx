@@ -3,6 +3,7 @@ import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
+import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
@@ -35,8 +36,10 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     }}
   >
     <div className="absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white opacity-60" />
-    <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm text-neutral-500 shadow-lg">
-      ⇔
+    <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg">
+      <div className="h-5 w-5">
+        <ArrowsHorizontalIcon />
+      </div>
     </div>
   </div>
 );
