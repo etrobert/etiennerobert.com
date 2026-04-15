@@ -92,13 +92,8 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full [width:var(--w)] overflow-clip bg-fixed text-[#f5e6d3] lg:static lg:w-1/2 lg:bg-scroll"
-        style={{
-          '--w': devPct,
-          backgroundImage: 'url(/code.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="absolute top-0 left-0 h-full [width:var(--w)] overflow-clip bg-[url(/code.jpg)] bg-cover bg-fixed bg-center text-[#f5e6d3] lg:static lg:w-1/2 lg:bg-scroll"
+        style={{ '--w': devPct }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-2xl lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-end lg:pr-4 lg:text-right lg:text-4xl">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
@@ -125,13 +120,8 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full [width:var(--w)] overflow-clip bg-fixed text-[#d4d4d4] lg:static lg:w-1/2 lg:bg-scroll"
-        style={{
-          '--w': creativePct,
-          backgroundImage: 'url(/dance.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="absolute top-0 right-0 h-full [width:var(--w)] overflow-clip bg-[url(/dance.png)] bg-cover bg-fixed bg-center text-[#d4d4d4] lg:static lg:w-1/2 lg:bg-scroll"
+        style={{ '--w': creativePct }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-2xl lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-start lg:pl-4 lg:text-left lg:text-4xl">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
