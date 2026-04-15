@@ -20,6 +20,7 @@
     "email": "etiennerobert33@gmail.com",
     "url": "https://github.com/etrobert"
   },
+  "type": "module",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/etrobert/etiennerobert.com/issues"
