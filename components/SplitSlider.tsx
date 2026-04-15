@@ -22,6 +22,22 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     tabIndex={0}
     className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh]"
     style={{ left }}
+    onKeyDown={(event) => {
+      const step = 0.05;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        onChange(Math.max(0.1, valuenow / 100 - step));
+      } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        onChange(Math.min(0.9, valuenow / 100 + step));
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        onChange(0.1);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        onChange(0.9);
+      }
+    }}
     onPointerDown={(event) => {
       event.currentTarget.setPointerCapture(event.pointerId);
     }}
