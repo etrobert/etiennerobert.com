@@ -1,9 +1,8 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 const SplitSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0.5);
-  const dragging = useRef(false);
 
   const updatePos = useCallback((clientX: number) => {
     const container = containerRef.current;
@@ -14,36 +13,13 @@ const SplitSlider = () => {
     setPos(p);
   }, []);
 
-  useEffect(() => {
-    const onMouseUp = () => {
-      dragging.current = false;
-    };
-    const onMouseMove = (e: MouseEvent) => {
-      if (dragging.current) updatePos(e.clientX);
-    };
-    const onTouchEnd = () => {
-      dragging.current = false;
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (dragging.current) updatePos(e.touches[0].clientX);
-    };
+  const onPointerDown = (e: React.PointerEvent) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
 
-    window.addEventListener('mouseup', onMouseUp);
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('touchend', onTouchEnd);
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
-
-    return () => {
-      window.removeEventListener('mouseup', onMouseUp);
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('touchend', onTouchEnd);
-      window.removeEventListener('touchmove', onTouchMove);
-    };
-  }, [updatePos]);
-
-  const startDrag = (e: React.MouseEvent | React.TouchEvent) => {
-    dragging.current = true;
-    e.preventDefault();
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (e.buttons === 0) return;
+    updatePos(e.clientX);
   };
 
   const devPct = `${pos * 100}%`;
@@ -94,8 +70,8 @@ const SplitSlider = () => {
         tabIndex={0}
         className="absolute top-0 bottom-0 z-10 flex cursor-col-resize items-center justify-center"
         style={{ left: devPct, transform: 'translateX(-50%)', width: '44px' }}
-        onMouseDown={startDrag}
-        onTouchStart={startDrag}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
       >
         <div
           className="absolute inset-y-0 bg-white opacity-60"
