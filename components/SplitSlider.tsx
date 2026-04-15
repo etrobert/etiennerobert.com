@@ -84,7 +84,7 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-clip text-[#2a1a0e]"
+        className="absolute top-0 left-0 h-full overflow-clip text-[#f5e6d3]"
         style={{ width: devPct, backgroundImage: 'url(/code.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem]">
