@@ -13,6 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  { ignores: ['dist'] },
   {
     extends: compat.extends(
       'eslint:recommended',
