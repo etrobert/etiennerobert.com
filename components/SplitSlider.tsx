@@ -101,7 +101,8 @@ const SplitSlider = () => {
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-end lg:pr-4 lg:text-right lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
-            Étienne Robert
+            <span className="lg:hidden">Étienne Robert</span>
+            <span className="hidden lg:inline">Étienne</span>
           </h1>
           <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">
             Software
@@ -133,7 +134,8 @@ const SplitSlider = () => {
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-start lg:pl-4 lg:text-left lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
-            Étienne Robert
+            <span className="lg:hidden">Étienne Robert</span>
+            <span className="hidden lg:inline">Robert</span>
           </h1>
           <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">
             Dance
