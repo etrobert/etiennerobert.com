@@ -20,7 +20,6 @@ export default defineConfig([
       'plugin:react/jsx-runtime',
       'plugin:jsx-a11y/recommended',
       'plugin:@typescript-eslint/recommended',
-      'plugin:@next/next/recommended',
     ),
 
     linterOptions: {

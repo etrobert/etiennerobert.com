@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import styles from './Portrait.module.scss';
 
 const Portrait = () => (
-  <Image
+  <img
     src="/portrait.jpeg"
     className={[
       styles.portrait,
