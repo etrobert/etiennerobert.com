@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 import MailIcon from './icons/MailIcon';
+import { useBoundingRect } from './useBoundingRect';
 
 const MIN_POS = 0.05;
 const MAX_POS = 0.95;
@@ -51,34 +52,6 @@ const Handle = ({ containerRect, left, onChange, valuenow }: HandleProps) => (
     </div>
   </div>
 );
-
-function useBoundingRect<T extends Element>() {
-  const ref = useRef<T>(null);
-  const [rect, setRect] = useState<DOMRectReadOnly>({
-    bottom: 0,
-    width: 0,
-    height: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-    x: 0,
-    y: 0,
-    toJSON: () => ({}),
-  });
-
-  useEffect(() => {
-    if (!ref.current) return;
-
-    const observer = new ResizeObserver(([entry]) => {
-      setRect(entry.contentRect);
-    });
-
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return [ref, rect] as const;
-}
 
 const SplitSlider = () => {
   const [pos, setPos] = useState(0.5);
