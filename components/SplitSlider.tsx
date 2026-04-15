@@ -85,11 +85,21 @@ const SplitSlider = () => {
       {/* Dev panel */}
       <div
         className="absolute top-0 left-0 h-full overflow-clip text-[#f5e6d3]"
-        style={{ width: devPct, backgroundImage: 'url(/code.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+        style={{
+          width: devPct,
+          backgroundImage: 'url(/code.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem]">
-          <h1 className="text-[2em] leading-none font-extrabold tracking-tight">Étienne Robert</h1>
-          <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">Software</h2>
+          <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
+            Étienne Robert
+          </h1>
+          <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">
+            Software
+          </h2>
           <div className="flex gap-4">
             <IconLink
               label="Github Profile"
@@ -107,7 +117,7 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-clip text-[#f0f0f0]"
+        className="absolute top-0 right-0 h-full overflow-clip text-[#d4d4d4]"
         style={{
           width: creativePct,
           backgroundImage: 'url(/dance.png)',
@@ -117,8 +127,12 @@ const SplitSlider = () => {
         }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem]">
-          <h1 className="text-[2em] leading-none font-extrabold tracking-tight">Étienne Robert</h1>
-          <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">Dance</h2>
+          <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
+            Étienne Robert
+          </h1>
+          <h2 className="text-[0.79em] leading-tight tracking-wide opacity-70">
+            Dance
+          </h2>
           <div className="flex gap-4">
             <IconLink
               label="Instagram Profile"
