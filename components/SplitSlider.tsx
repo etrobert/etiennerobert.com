@@ -99,7 +99,7 @@ const SplitSlider = () => {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:text-[2rem]">
+        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-end lg:pr-4 lg:text-right lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
@@ -131,7 +131,7 @@ const SplitSlider = () => {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:text-[2rem]">
+        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:relative lg:inset-auto lg:h-full lg:w-full lg:items-start lg:pl-4 lg:text-left lg:text-[2rem]">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
