@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo: Toggle</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: sans-serif; height: 100dvh; overflow: hidden; }
+
+  .screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .screen.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .dev { background: #1a1a1a; color: #f0f0f0; }
+  .creative { background: #f5e6d3; color: #2a1a0e; }
+
+  h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; }
+  p { font-size: 0.85rem; opacity: 0.55; letter-spacing: 0.04em; }
+
+  .toggle-bar {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .toggle-btn {
+    padding: 8px 22px;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+  }
+  .toggle-btn.active { background: rgba(255,255,255,0.25); }
+
+  .dev .toggle-btn.active { background: rgba(255,255,255,0.2); color: #fff; }
+  .creative .toggle-btn.active { background: rgba(0,0,0,0.12); color: #2a1a0e; }
+  .dev .toggle-bar { color: #fff; }
+  .creative .toggle-bar { color: #2a1a0e; }
+</style>
+</head>
+<body>
+
+<div class="screen dev" id="dev-screen">
+  <h1>Software</h1>
+  <p>dev work & open source</p>
+  <div class="toggle-bar">
+    <button class="toggle-btn active" onclick="show('dev')">Dev</button>
+    <button class="toggle-btn" onclick="show('creative')">Creative</button>
+  </div>
+</div>
+
+<div class="screen creative hidden" id="creative-screen">
+  <h1>Creative</h1>
+  <p>dance & queer art</p>
+  <div class="toggle-bar">
+    <button class="toggle-btn" onclick="show('dev')">Dev</button>
+    <button class="toggle-btn active" onclick="show('creative')">Creative</button>
+  </div>
+</div>
+
+<script>
+function show(which) {
+  document.getElementById('dev-screen').classList.toggle('hidden', which !== 'dev');
+  document.getElementById('creative-screen').classList.toggle('hidden', which !== 'creative');
+}
+</script>
+</body>
+</html>

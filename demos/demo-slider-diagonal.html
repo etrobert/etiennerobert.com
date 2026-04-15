@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo: Diagonal Slider</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: sans-serif; height: 100dvh; overflow: hidden; user-select: none; }
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .panel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .dev { background: #1a1a1a; color: #f0f0f0; }
+  .creative { background: #f5e6d3; color: #2a1a0e; }
+
+  h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
+  p { font-size: 0.82rem; opacity: 0.5; letter-spacing: 0.04em; }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9;
+  }
+
+  .handle-grip {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #555;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    cursor: col-resize;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="container">
+  <div class="panel dev" id="dev-panel">
+    <h1>Software</h1>
+    <p>dev work & open source</p>
+  </div>
+
+  <div class="panel creative" id="creative-panel">
+    <h1>Creative</h1>
+    <p>dance & queer art</p>
+  </div>
+
+  <svg id="svg-overlay">
+    <line id="divider-line" stroke="white" stroke-width="2" opacity="0.55"/>
+  </svg>
+
+  <div class="handle-grip" id="handle">⇔</div>
+</div>
+
+<script>
+  const container = document.getElementById('container');
+  const devPanel = document.getElementById('dev-panel');
+  const creativePanel = document.getElementById('creative-panel');
+  const handle = document.getElementById('handle');
+  const dividerLine = document.getElementById('divider-line');
+
+  const DIAGONAL = 0.08; // how far the line leans (fraction of width)
+  let pos = 0.5;
+  let dragging = false;
+
+  function update() {
+    const W = container.offsetWidth;
+    const H = container.offsetHeight;
+    const topX = (pos + DIAGONAL) * W;
+    const bottomX = (pos - DIAGONAL) * W;
+
+    devPanel.style.clipPath =
+      `polygon(0 0, ${topX}px 0, ${bottomX}px ${H}px, 0 ${H}px)`;
+    creativePanel.style.clipPath =
+      `polygon(${topX}px 0, ${W}px 0, ${W}px ${H}px, ${bottomX}px ${H}px)`;
+
+    dividerLine.setAttribute('x1', topX);
+    dividerLine.setAttribute('y1', 0);
+    dividerLine.setAttribute('x2', bottomX);
+    dividerLine.setAttribute('y2', H);
+
+    handle.style.left = pos * 100 + '%';
+  }
+
+  function setPos(clientX) {
+    const rect = container.getBoundingClientRect();
+    pos = (clientX - rect.left) / rect.width;
+    pos = Math.max(0.15, Math.min(0.85, pos));
+    update();
+  }
+
+  handle.addEventListener('mousedown', () => dragging = true);
+  window.addEventListener('mouseup', () => dragging = false);
+  window.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+
+  handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
+  window.addEventListener('touchend', () => dragging = false);
+  window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+
+  window.addEventListener('resize', update);
+  update();
+</script>
+
+</body>
+</html>

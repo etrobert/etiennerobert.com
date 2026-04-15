@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo: Normal Stack</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: sans-serif; min-height: 100dvh; display: flex; flex-direction: column; }
+
+  .card {
+    flex: 1;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 48px 32px;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .dev { background: #1a1a1a; color: #f0f0f0; }
+  .creative { background: #f5e6d3; color: #2a1a0e; }
+
+  h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; }
+  p { font-size: 0.85rem; opacity: 0.55; letter-spacing: 0.04em; text-align: center; max-width: 220px; }
+
+  .cta {
+    margin-top: 8px;
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .dev .cta { border: 1px solid rgba(255,255,255,0.25); color: #f0f0f0; }
+  .creative .cta { border: 1px solid rgba(0,0,0,0.2); color: #2a1a0e; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    font-size: 0.7rem;
+    opacity: 0.3;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(to right, #1a1a1a, #f5e6d3);
+  }
+</style>
+</head>
+<body>
+
+<div class="card dev">
+  <h1>Software</h1>
+  <p>Dev work, open source, and engineering</p>
+  <a class="cta" href="#">Explore →</a>
+  <div class="scroll-hint">scroll ↓</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="card creative">
+  <h1>Creative</h1>
+  <p>Dance, performance, and queer art</p>
+  <a class="cta" href="#">Explore →</a>
+</div>
+
+</body>
+</html>
