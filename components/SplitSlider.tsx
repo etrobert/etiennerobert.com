@@ -17,13 +17,13 @@ declare module 'csstype' {
 }
 
 type HandleProps = {
-  containerRef: React.RefObject<HTMLDivElement | null>;
+  containerRect: DOMRectReadOnly;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
 };
 
-const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
+const Handle = ({ containerRect, left, onChange, valuenow }: HandleProps) => (
   <div
     role="slider"
     aria-label="Drag to reveal more of each side"
@@ -38,10 +38,7 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     }}
     onPointerMove={(event) => {
       if (event.buttons === 0) return;
-      const container = containerRef.current;
-      if (!container) return;
-      const rect = container.getBoundingClientRect();
-      let p = (event.clientX - rect.left) / rect.width;
+      let p = (event.clientX - containerRect.left) / containerRect.width;
       p = Math.max(MIN_POS, Math.min(MAX_POS, p));
       onChange(p);
     }}
@@ -55,9 +52,38 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
   </div>
 );
 
+function useBoundingRect<T extends Element>() {
+  const ref = useRef<T>(null);
+  const [rect, setRect] = useState<DOMRectReadOnly>({
+    bottom: 0,
+    width: 0,
+    height: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    x: 0,
+    y: 0,
+    toJSON: () => ({}),
+  });
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      setRect(entry.contentRect);
+    });
+
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, rect] as const;
+}
+
 const SplitSlider = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0.5);
+
+  const [containerRef, containerRect] = useBoundingRect<HTMLDivElement>();
 
   useEffect(() => {
     const step = 0.05;
@@ -147,7 +173,7 @@ const SplitSlider = () => {
       </div>
 
       <Handle
-        containerRef={containerRef}
+        containerRect={containerRect}
         left={devPct}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
