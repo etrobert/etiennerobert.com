@@ -5,6 +5,9 @@ import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
+const MIN_POS = 0.1;
+const MAX_POS = 0.9;
+
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
   left: string;
@@ -17,8 +20,8 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     role="slider"
     aria-label="Drag to reveal more of each side"
     aria-valuenow={valuenow}
-    aria-valuemin={10}
-    aria-valuemax={90}
+    aria-valuemin={MIN_POS * 100}
+    aria-valuemax={MAX_POS * 100}
     tabIndex={0}
     className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh]"
     style={{ left }}
@@ -31,7 +34,7 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
       if (!container) return;
       const rect = container.getBoundingClientRect();
       let p = (event.clientX - rect.left) / rect.width;
-      p = Math.max(0.1, Math.min(0.9, p));
+      p = Math.max(MIN_POS, Math.min(MAX_POS, p));
       onChange(p);
     }}
   >
@@ -55,16 +58,16 @@ const SplitSlider = () => {
       if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
       if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
         event.preventDefault();
-        setPos((p) => Math.max(0.1, p - step));
+        setPos((p) => Math.max(MIN_POS, p - step));
       } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
         event.preventDefault();
-        setPos((p) => Math.min(0.9, p + step));
+        setPos((p) => Math.min(MAX_POS, p + step));
       } else if (event.key === 'Home') {
         event.preventDefault();
-        setPos(0.1);
+        setPos(MIN_POS);
       } else if (event.key === 'End') {
         event.preventDefault();
-        setPos(0.9);
+        setPos(MAX_POS);
       }
     };
     window.addEventListener('keydown', onKeyDown);
