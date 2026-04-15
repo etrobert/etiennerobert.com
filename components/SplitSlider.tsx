@@ -6,10 +6,6 @@ import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
 const SLANT = 0.1;
-// Button is at 33% from bottom = 67% from top
-// Separator x at vertical fraction t: pos + SLANT * (1 - 2t)
-const BUTTON_TOP_FRACTION = 0.67;
-const HANDLE_SLANT_OFFSET = SLANT * (1 - 2 * BUTTON_TOP_FRACTION); // ≈ -0.034
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
@@ -126,7 +122,7 @@ const SplitSlider = () => {
 
       <Handle
         containerRef={containerRef}
-        left={`${(pos + HANDLE_SLANT_OFFSET) * 100}%`}
+        left={`${pos * 100}%`}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
       />
