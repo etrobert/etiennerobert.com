@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
@@ -7,13 +7,21 @@ import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
+  handleRef: React.RefObject<HTMLDivElement | null>;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
 };
 
-const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
+const Handle = ({
+  containerRef,
+  handleRef,
+  left,
+  onChange,
+  valuenow,
+}: HandleProps) => (
   <div
+    ref={handleRef}
     role="slider"
     aria-label="Drag to reveal more of each side"
     aria-valuenow={valuenow}
@@ -22,22 +30,6 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     tabIndex={0}
     className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh]"
     style={{ left }}
-    onKeyDown={(event) => {
-      const step = 0.05;
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
-        event.preventDefault();
-        onChange(Math.max(0.1, valuenow / 100 - step));
-      } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
-        event.preventDefault();
-        onChange(Math.min(0.9, valuenow / 100 + step));
-      } else if (event.key === 'Home') {
-        event.preventDefault();
-        onChange(0.1);
-      } else if (event.key === 'End') {
-        event.preventDefault();
-        onChange(0.9);
-      }
-    }}
     onPointerDown={(event) => {
       event.currentTarget.setPointerCapture(event.pointerId);
     }}
@@ -62,7 +54,33 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
 
 const SplitSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0.5);
+
+  useEffect(() => {
+    const step = 0.05;
+    const onKeyDown = (event: KeyboardEvent) => {
+      const active = document.activeElement;
+      const tag = active?.tagName.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+      const handleFocused = active === handleRef.current;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        setPos((p) => Math.max(0.1, p - step));
+      } else if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        setPos((p) => Math.min(0.9, p + step));
+      } else if (handleFocused && event.key === 'Home') {
+        event.preventDefault();
+        setPos(0.1);
+      } else if (handleFocused && event.key === 'End') {
+        event.preventDefault();
+        setPos(0.9);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   const devPct = `${pos * 100}%`;
   const creativePct = `${(1 - pos) * 100}%`;
@@ -78,7 +96,9 @@ const SplitSlider = () => {
         style={{ width: devPct }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
-          <h1 className="text-4xl font-extrabold tracking-tight">Étienne Robert</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight">
+            Étienne Robert
+          </h1>
           <h2 className="text-xl tracking-wide opacity-70">Software</h2>
           <div className="flex gap-4">
             <IconLink
@@ -98,10 +118,18 @@ const SplitSlider = () => {
       {/* Creative panel */}
       <div
         className="absolute top-0 right-0 h-full overflow-clip text-[#f0f0f0]"
-        style={{ width: creativePct, backgroundImage: 'url(/dance.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
+        style={{
+          width: creativePct,
+          backgroundImage: 'url(/dance.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
-          <h1 className="text-4xl font-extrabold tracking-tight">Étienne Robert</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight">
+            Étienne Robert
+          </h1>
           <h2 className="text-xl tracking-wide opacity-70">Dance</h2>
           <div className="flex gap-4">
             <IconLink
@@ -115,6 +143,7 @@ const SplitSlider = () => {
 
       <Handle
         containerRef={containerRef}
+        handleRef={handleRef}
         left={devPct}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
