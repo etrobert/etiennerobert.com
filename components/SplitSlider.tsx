@@ -58,7 +58,7 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-hidden bg-[#1a1a1a] text-[#f0f0f0]"
+        className="absolute top-0 left-0 h-full overflow-hidden bg-[#f5e6d3] text-[#2a1a0e]"
         style={{ width: devPct }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
@@ -81,8 +81,8 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-hidden bg-[#f5e6d3] text-[#2a1a0e]"
-        style={{ width: creativePct }}
+        className="absolute top-0 right-0 h-full overflow-hidden text-[#f0f0f0]"
+        style={{ width: creativePct, backgroundImage: 'url(/dance.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
           <h1 className="text-4xl font-extrabold tracking-tight">Étienne Robert</h1>
