@@ -10,12 +10,19 @@ const MAX_POS = 0.9;
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
+  className?: string;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
 };
 
-const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
+const Handle = ({
+  containerRef,
+  className,
+  left,
+  onChange,
+  valuenow,
+}: HandleProps) => (
   <div
     role="slider"
     aria-label="Drag to reveal more of each side"
@@ -23,7 +30,7 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
     aria-valuemin={MIN_POS * 100}
     aria-valuemax={MAX_POS * 100}
     tabIndex={0}
-    className="absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh]"
+    className={`absolute inset-y-0 z-10 flex w-11 -translate-x-1/2 cursor-col-resize touch-none items-end justify-center pb-[33dvh] ${className ?? ''}`}
     style={{ left }}
     onPointerDown={(event) => {
       event.currentTarget.setPointerCapture(event.pointerId);
@@ -80,20 +87,19 @@ const SplitSlider = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-dvh w-full overflow-hidden select-none"
+      className="relative h-dvh w-full overflow-hidden select-none lg:flex"
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-clip text-[#f5e6d3]"
+        className="absolute top-0 left-0 h-full overflow-clip text-[#f5e6d3] bg-fixed lg:static lg:!w-1/2 lg:bg-scroll"
         style={{
           width: devPct,
           backgroundImage: 'url(/code.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
         }}
       >
-        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem]">
+        <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem] lg:relative lg:inset-auto lg:w-full lg:h-full">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
@@ -117,16 +123,15 @@ const SplitSlider = () => {
 
       {/* Creative panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-clip text-[#d4d4d4]"
+        className="absolute top-0 right-0 h-full overflow-clip text-[#d4d4d4] bg-fixed lg:static lg:!w-1/2 lg:bg-scroll"
         style={{
           width: creativePct,
           backgroundImage: 'url(/dance.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
         }}
       >
-        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem]">
+        <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3 text-[1.5rem] lg:text-[2rem] lg:relative lg:inset-auto lg:w-full lg:h-full">
           <h1 className="text-[2em] leading-none font-extrabold tracking-tight">
             Étienne Robert
           </h1>
@@ -145,6 +150,7 @@ const SplitSlider = () => {
 
       <Handle
         containerRef={containerRef}
+        className="lg:hidden"
         left={devPct}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
