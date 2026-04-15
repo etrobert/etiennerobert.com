@@ -18,7 +18,7 @@ declare module 'csstype' {
 }
 
 type HandleProps = {
-  containerRect: DOMRectReadOnly;
+  containerRect: DOMRectReadOnly | null;
   left: string;
   onChange: (pos: number) => void;
   valuenow: number;
@@ -39,6 +39,7 @@ const Handle = ({ containerRect, left, onChange, valuenow }: HandleProps) => (
     }}
     onPointerMove={(event) => {
       if (event.buttons === 0) return;
+      if (containerRect === null) return;
       let p = (event.clientX - containerRect.left) / containerRect.width;
       p = Math.max(MIN_POS, Math.min(MAX_POS, p));
       onChange(p);
