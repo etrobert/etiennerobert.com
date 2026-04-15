@@ -5,6 +5,8 @@ import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
 
+const SLANT = 0.1;
+
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
   left: string;
@@ -35,7 +37,6 @@ const Handle = ({ containerRef, left, onChange, valuenow }: HandleProps) => (
       onChange(p);
     }}
   >
-    <div className="absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 bg-white opacity-60" />
     <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg">
       <div className="h-5 w-5">
         <ArrowsHorizontalIcon />
@@ -48,8 +49,12 @@ const SplitSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0.5);
 
-  const devPct = `${pos * 100}%`;
-  const creativePct = `${(1 - pos) * 100}%`;
+  // Separator goes from (pos + SLANT) at top to (pos - SLANT) at bottom
+  const topPos = pos + SLANT;
+  const bottomPos = pos - SLANT;
+
+  const leftClip = `polygon(0 0, ${topPos * 100}% 0, ${bottomPos * 100}% 100%, 0 100%)`;
+  const rightClip = `polygon(${topPos * 100}% 0, 100% 0, 100% 100%, ${bottomPos * 100}% 100%)`;
 
   return (
     <div
@@ -58,12 +63,14 @@ const SplitSlider = () => {
     >
       {/* Dev panel */}
       <div
-        className="absolute top-0 left-0 h-full overflow-hidden bg-[#1a1a1a] text-[#f0f0f0]"
-        style={{ width: devPct }}
+        className="absolute inset-0 bg-[#1a1a1a] text-[#f0f0f0]"
+        style={{ clipPath: leftClip }}
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
           <h2 className="text-4xl font-extrabold tracking-tight">Software</h2>
-          <p className="text-sm tracking-wide opacity-50">low level & web dev</p>
+          <p className="text-sm tracking-wide opacity-50">
+            low level & web dev
+          </p>
           <div className="flex gap-4">
             <IconLink
               label="Github Profile"
@@ -79,10 +86,10 @@ const SplitSlider = () => {
         </div>
       </div>
 
-      {/* Creative panel */}
+      {/* Dance panel */}
       <div
-        className="absolute top-0 right-0 h-full overflow-hidden bg-[#f5e6d3] text-[#2a1a0e]"
-        style={{ width: creativePct }}
+        className="absolute inset-0 bg-[#f5e6d3] text-[#2a1a0e]"
+        style={{ clipPath: rightClip }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
           <h2 className="text-4xl font-extrabold tracking-tight">Dance</h2>
@@ -97,9 +104,25 @@ const SplitSlider = () => {
         </div>
       </div>
 
+      {/* Diagonal separator line */}
+      <svg
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        style={{ zIndex: 5 }}
+      >
+        <line
+          x1={`${topPos * 100}%`}
+          y1="0%"
+          x2={`${bottomPos * 100}%`}
+          y2="100%"
+          stroke="white"
+          strokeWidth="3"
+          strokeOpacity="0.6"
+        />
+      </svg>
+
       <Handle
         containerRef={containerRef}
-        left={devPct}
+        left={`${pos * 100}%`}
         valuenow={Math.round(pos * 100)}
         onChange={setPos}
       />
