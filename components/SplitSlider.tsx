@@ -1,4 +1,8 @@
 import { useState, useRef } from 'react';
+import GithubIcon from './icons/GithubIcon';
+import LinkedinIcon from './icons/LinkedinIcon';
+import InstagramIcon from './icons/InstagramIcon';
+import IconLink from './IconLink';
 
 type HandleProps = {
   containerRef: React.RefObject<HTMLDivElement | null>;
@@ -56,9 +60,19 @@ const SplitSlider = () => {
       >
         <div className="absolute inset-y-0 left-0 flex w-screen flex-col items-center justify-center gap-3">
           <h2 className="text-4xl font-extrabold tracking-tight">Software</h2>
-          <p className="text-sm tracking-wide opacity-50">
-            dev work & open source
-          </p>
+          <p className="text-sm tracking-wide opacity-50">low level & web dev</p>
+          <div className="flex gap-4">
+            <IconLink
+              label="Github Profile"
+              href="https://github.com/etrobert"
+              icon={<GithubIcon />}
+            />
+            <IconLink
+              label="Linkedin Profile"
+              href="https://www.linkedin.com/in/etienne-robert-dev/"
+              icon={<LinkedinIcon />}
+            />
+          </div>
         </div>
       </div>
 
@@ -68,8 +82,15 @@ const SplitSlider = () => {
         style={{ width: creativePct }}
       >
         <div className="absolute inset-y-0 right-0 flex w-screen flex-col items-center justify-center gap-3">
-          <h2 className="text-4xl font-extrabold tracking-tight">Creative</h2>
-          <p className="text-sm tracking-wide opacity-50">dance & queer art</p>
+          <h2 className="text-4xl font-extrabold tracking-tight">Dance</h2>
+          <p className="text-sm tracking-wide opacity-50">dance & aerials</p>
+          <div className="flex gap-4">
+            <IconLink
+              label="Instagram Profile"
+              href="https://www.instagram.com/thesoft.emperor"
+              icon={<InstagramIcon />}
+            />
+          </div>
         </div>
       </div>
 
