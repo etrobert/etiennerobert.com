@@ -35,12 +35,15 @@
 
       nixosModules.default =
         { pkgs, ... }:
+        let
+          inherit (pkgs.stdenv.hostPlatform) system;
+        in
         {
           services.caddy = {
             enable = true;
             # TODO: Remove http:// post testing
             virtualHosts."http://etiennerobert.com".extraConfig = ''
-              root * ${self.packages.${pkgs.system}.default}
+              root * ${self.packages.${system}.default}
               try_files {path} /index.html
               file_server
             '';
