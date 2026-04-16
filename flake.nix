@@ -38,7 +38,8 @@
         {
           services.caddy = {
             enable = true;
-            virtualHosts."etiennerobert.com".extraConfig = ''
+            # TODO: Remove http:// post testing
+            virtualHosts."http://etiennerobert.com".extraConfig = ''
               root * ${self.packages.${pkgs.system}.default}
               try_files {path} /index.html
               file_server
