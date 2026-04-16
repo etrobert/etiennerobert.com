@@ -15,6 +15,24 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.buildNpmPackage {
+            pname = "etiennerobert.com";
+            version = "1.0.0";
+            src = ./.;
+            npmDepsHash = "sha256-6LjvFP0shVP2Rr0ICzohKmkOgsACpAvFyjt745Zr6vA=";
+            installPhase = ''
+              cp -r dist $out
+            '';
+          };
+        }
+      );
+
       devShells = forAllSystems (
         system:
         let
