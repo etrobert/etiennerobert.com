@@ -4,7 +4,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs =
-    { nixpkgs, ... }:
+    { self, nixpkgs, ... }:
     let
       systems = [
         "x86_64-linux"
@@ -32,6 +32,19 @@
           };
         }
       );
+
+      nixosModules.default =
+        { pkgs, ... }:
+        {
+          services.caddy = {
+            enable = true;
+            virtualHosts."etiennerobert.com".extraConfig = ''
+              root * ${self.packages.${pkgs.system}.default}
+              try_files {path} /index.html
+              file_server
+            '';
+          };
+        };
 
       devShells = forAllSystems (
         system:
