@@ -42,7 +42,7 @@
           services.caddy = {
             enable = true;
             # TODO: Remove http:// post testing
-            virtualHosts."http://etiennerobert.com".extraConfig = ''
+            virtualHosts."http://etiennerobert.com".extraConfig = /* caddy */ ''
               root * ${self.packages.${system}.default}
               try_files {path} /index.html
               file_server
