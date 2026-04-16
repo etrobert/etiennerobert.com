@@ -44,6 +44,7 @@
             # TODO: Remove http:// post testing
             virtualHosts."http://etiennerobert.com".extraConfig = /* caddy */ ''
               root * ${self.packages.${system}.default}
+              encode zstd gzip
               try_files {path} /index.html
               file_server
             '';
