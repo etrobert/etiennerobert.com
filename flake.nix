@@ -25,7 +25,8 @@
             pname = "etiennerobert.com";
             version = "1.0.0";
             src = ./.;
-            npmDepsHash = "sha256-Vu+51wMngDBM+bSCtbxfxO9nWPmYbHViizwTNqZOfEc=";
+            npmDeps = pkgs.importNpmLock { npmRoot = ./.; };
+            npmConfigHook = pkgs.importNpmLock.npmConfigHook;
             installPhase = ''
               cp -r dist $out
             '';
