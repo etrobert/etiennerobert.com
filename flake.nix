@@ -25,7 +25,7 @@
             pname = "etiennerobert.com";
             version = "1.0.0";
             src = ./.;
-            npmDepsHash = "sha256-6LjvFP0shVP2Rr0ICzohKmkOgsACpAvFyjt745Zr6vA=";
+            npmDepsHash = "sha256-Vu+51wMngDBM+bSCtbxfxO9nWPmYbHViizwTNqZOfEc=";
             installPhase = ''
               cp -r dist $out
             '';
