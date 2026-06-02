@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/stats/script.js",
+      "destination": "https://umami.etiennerobert.com/script.js"
+    },
+    {
+      "source": "/stats/api/send",
+      "destination": "https://umami.etiennerobert.com/api/send"
+    }
+  ]
+}
