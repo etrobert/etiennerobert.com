@@ -54,7 +54,11 @@ const Handle = ({ containerRect, left, onChange, valuenow }: HandleProps) => (
   </div>
 );
 
-const SplitSlider = () => {
+type SplitSliderProps = {
+  onOpenDance: () => void;
+};
+
+const SplitSlider = ({ onOpenDance }: SplitSliderProps) => {
   const [pos, setPos] = useState(0.5);
 
   const [containerRef, containerRect] = useBoundingRect<HTMLDivElement>();
@@ -143,6 +147,16 @@ const SplitSlider = () => {
               icon={<InstagramIcon />}
             />
           </div>
+          <a
+            href="/dance"
+            className="text-[0.6em] tracking-wide underline-offset-4 opacity-70 transition-opacity duration-300 hover:underline hover:opacity-100"
+            onClick={(event) => {
+              event.preventDefault();
+              onOpenDance();
+            }}
+          >
+            Portfolio
+          </a>
         </div>
       </div>
 
