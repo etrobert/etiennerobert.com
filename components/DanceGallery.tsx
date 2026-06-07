@@ -23,7 +23,7 @@ const DanceGallery = () => {
           Étienne Robert
         </Link>
         <span className="opacity-30">/</span>
-        <span>Dance</span>
+        <span>Dance Gallery</span>
       </header>
 
       <main className="p-2 sm:p-4">
