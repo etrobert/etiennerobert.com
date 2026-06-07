@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
@@ -54,11 +55,7 @@ const Handle = ({ containerRect, left, onChange, valuenow }: HandleProps) => (
   </div>
 );
 
-type SplitSliderProps = {
-  onOpenDance: () => void;
-};
-
-const SplitSlider = ({ onOpenDance }: SplitSliderProps) => {
+const SplitSlider = () => {
   const [pos, setPos] = useState(0.5);
 
   const [containerRef, containerRect] = useBoundingRect<HTMLDivElement>();
@@ -147,16 +144,12 @@ const SplitSlider = ({ onOpenDance }: SplitSliderProps) => {
               icon={<InstagramIcon />}
             />
           </div>
-          <a
-            href="/dance"
+          <Link
+            to="/dance"
             className="text-[0.6em] tracking-wide underline-offset-4 opacity-70 transition-opacity duration-300 hover:underline hover:opacity-100"
-            onClick={(event) => {
-              event.preventDefault();
-              onOpenDance();
-            }}
           >
             Portfolio
-          </a>
+          </Link>
         </div>
       </div>
 

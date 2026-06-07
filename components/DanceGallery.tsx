@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import { fetchDancePhotos, type Photo } from './dance';
 
-type Props = {
-  onBack: () => void;
-};
-
-const DanceGallery = ({ onBack }: Props) => {
+const DanceGallery = () => {
   const [photos, setPhotos] = useState<Photo[] | null>(null);
   const [error, setError] = useState(false);
 
@@ -18,16 +15,12 @@ const DanceGallery = ({ onBack }: Props) => {
   return (
     <div className="min-h-dvh bg-stone-950 text-[#d4d4d4]">
       <header className="sticky top-0 z-10 flex items-center gap-2 bg-stone-950/80 px-4 py-3 text-sm tracking-wide backdrop-blur">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="opacity-70 transition-opacity hover:opacity-100"
-          onClick={(event) => {
-            event.preventDefault();
-            onBack();
-          }}
         >
           ← Étienne Robert
-        </a>
+        </Link>
         <span className="opacity-30">/</span>
         <span>Dance</span>
       </header>
