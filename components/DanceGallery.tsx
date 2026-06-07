@@ -13,7 +13,7 @@ const DanceGallery = () => {
   });
 
   return (
-    <div className="min-h-dvh bg-stone-950 text-[#d4d4d4]">
+    <div className="min-h-dvh bg-stone-950 text-neutral-300">
       <header className="sticky top-0 z-10 flex items-center gap-2 bg-stone-950/80 px-4 py-3 text-sm tracking-wide backdrop-blur">
         <Link
           to="/"
