@@ -13,11 +13,11 @@ const IconLink = ({ href, icon, label, text }: Props) => (
   <Link
     target="_blank"
     href={href}
-    className="flex flex-col items-center gap-[0.4em]"
+    className="flex flex-col items-center gap-0.5"
     aria-label={label}
   >
     <span className="w-[2em]">{icon}</span>
-    <span className="text-[0.5em] tracking-wide uppercase">{text}</span>
+    <span className="text-base tracking-wide">{text}</span>
   </Link>
 );
 
