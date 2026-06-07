@@ -146,7 +146,7 @@ const SplitSlider = () => {
           </div>
           <Link
             to="/dance"
-            className="text-[0.6em] tracking-wide underline-offset-4 opacity-70 transition-opacity duration-300 hover:underline hover:opacity-100"
+            className="text-sm tracking-wide underline-offset-4 opacity-70 transition-opacity duration-300 hover:underline hover:opacity-100 lg:text-xl"
           >
             Portfolio
           </Link>
