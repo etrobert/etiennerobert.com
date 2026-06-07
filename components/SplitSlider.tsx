@@ -105,12 +105,12 @@ const SplitSlider = () => {
           </h2>
           <div className="flex gap-4">
             <IconLink
-              label="Github Profile"
+              label="Github"
               href="https://github.com/etrobert"
               icon={<GithubIcon />}
             />
             <IconLink
-              label="Linkedin Profile"
+              label="LinkedIn"
               href="https://www.linkedin.com/in/etienne-robert-dev/"
               icon={<LinkedinIcon />}
             />
@@ -138,7 +138,7 @@ const SplitSlider = () => {
               icon={<MailIcon />}
             />
             <IconLink
-              label="Instagram Profile"
+              label="Instagram"
               href="https://www.instagram.com/thesoft.emperor"
               icon={<InstagramIcon />}
             />

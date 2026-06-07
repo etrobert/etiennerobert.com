@@ -9,8 +9,13 @@ type Props = {
 };
 
 const IconLink = ({ href, icon, label }: Props) => (
-  <Link target="_blank" href={href} className="w-[2em]" aria-label={label}>
-    {icon}
+  <Link
+    target="_blank"
+    href={href}
+    className="flex flex-col items-center gap-0.5"
+  >
+    <span className="w-[2em]">{icon}</span>
+    <span className="text-base tracking-wide">{label}</span>
   </Link>
 );
 
