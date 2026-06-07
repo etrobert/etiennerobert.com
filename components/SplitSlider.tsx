@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router';
 import GithubIcon from './icons/GithubIcon';
 import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
@@ -144,15 +143,7 @@ const SplitSlider = () => {
               href="https://www.instagram.com/thesoft.emperor"
               icon={<InstagramIcon />}
             />
-            <Link
-              to="/dance"
-              className="flex flex-col items-center gap-0.5 opacity-80 transition-opacity duration-300 hover:opacity-100"
-            >
-              <span className="w-[2em]">
-                <ImageIcon />
-              </span>
-              <span className="text-base tracking-wide">Portfolio</span>
-            </Link>
+            <IconLink to="/dance" label="Portfolio" icon={<ImageIcon />} />
           </div>
         </div>
       </div>
