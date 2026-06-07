@@ -5,7 +5,7 @@ import DanceGallery from './DanceGallery';
 const App = () => (
   <Routes>
     <Route path="/" element={<SplitSlider />} />
-    <Route path="/dance" element={<DanceGallery />} />
+    <Route path="/dance/gallery" element={<DanceGallery />} />
   </Routes>
 );
 

@@ -108,11 +108,13 @@ const SplitSlider = () => {
             <IconLink
               label="Github"
               href="https://github.com/etrobert"
+              target="_blank"
               icon={<GithubIcon />}
             />
             <IconLink
               label="LinkedIn"
               href="https://www.linkedin.com/in/etienne-robert-dev/"
+              target="_blank"
               icon={<LinkedinIcon />}
             />
           </div>
@@ -136,14 +138,20 @@ const SplitSlider = () => {
             <IconLink
               label="Mail"
               href="mailto:etiennerobert33@gmail.com"
+              target="_blank"
               icon={<MailIcon />}
             />
             <IconLink
               label="Instagram"
               href="https://www.instagram.com/thesoft.emperor"
+              target="_blank"
               icon={<InstagramIcon />}
             />
-            <IconLink to="/dance" label="Gallery" icon={<ImageIcon />} />
+            <IconLink
+              href="/dance/gallery"
+              label="Gallery"
+              icon={<ImageIcon />}
+            />
           </div>
         </div>
       </div>
