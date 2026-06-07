@@ -39,7 +39,7 @@ const DanceGallery = () => {
           <p className="p-12 text-center opacity-60">Nothing here yet.</p>
         )}
         {photos && photos.length > 0 && (
-          <div className="columns-2 gap-2 sm:columns-3 lg:columns-4">
+          <div className="gap-2 sm:columns-2 lg:columns-3">
             {photos.map((photo) => (
               <img
                 key={photo.name}
