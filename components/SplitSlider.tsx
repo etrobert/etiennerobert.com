@@ -5,6 +5,7 @@ import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
+import ImageIcon from './icons/ImageIcon';
 import MailIcon from './icons/MailIcon';
 import { useBoundingRect } from './useBoundingRect';
 
@@ -143,13 +144,16 @@ const SplitSlider = () => {
               href="https://www.instagram.com/thesoft.emperor"
               icon={<InstagramIcon />}
             />
+            <Link
+              to="/dance"
+              className="flex flex-col items-center gap-0.5 opacity-80 transition-opacity duration-300 hover:opacity-100"
+            >
+              <span className="w-[2em]">
+                <ImageIcon />
+              </span>
+              <span className="text-base tracking-wide">Portfolio</span>
+            </Link>
           </div>
-          <Link
-            to="/dance"
-            className="text-sm tracking-wide underline-offset-4 opacity-70 transition-opacity duration-300 hover:underline hover:opacity-100 lg:text-xl"
-          >
-            Portfolio
-          </Link>
         </div>
       </div>
 
