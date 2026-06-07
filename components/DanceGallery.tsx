@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-import { fetchDancePhotos, type Photo } from './dance';
+import { useQuery } from '@tanstack/react-query';
+import { fetchDancePhotos } from './dance';
 
 const DanceGallery = () => {
-  const [photos, setPhotos] = useState<Photo[] | null>(null);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    fetchDancePhotos()
-      .then(setPhotos)
-      .catch(() => setError(true));
-  }, []);
+  const {
+    data: photos,
+    isPending,
+    isError,
+  } = useQuery({
+    queryKey: ['dance-photos'],
+    queryFn: fetchDancePhotos,
+  });
 
   return (
     <div className="min-h-dvh bg-stone-950 text-[#d4d4d4]">
@@ -26,18 +26,18 @@ const DanceGallery = () => {
       </header>
 
       <main className="p-2 sm:p-4">
-        {error && (
+        {isError && (
           <p className="p-12 text-center opacity-60">
             Couldn’t load the gallery.
           </p>
         )}
-        {!error && photos === null && (
+        {!isError && isPending && (
           <p className="p-12 text-center opacity-60">Loading…</p>
         )}
-        {photos !== null && photos.length === 0 && (
+        {photos && photos.length === 0 && (
           <p className="p-12 text-center opacity-60">Nothing here yet.</p>
         )}
-        {photos !== null && photos.length > 0 && (
+        {photos && photos.length > 0 && (
           <div className="columns-2 gap-2 sm:columns-3 lg:columns-4">
             {photos.map((photo) => (
               <img
