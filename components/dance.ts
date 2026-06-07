@@ -26,6 +26,16 @@ export type Photo = {
   src: string;
 };
 
+// Fisher-Yates shuffle, returning a new array.
+const shuffle = <T>(items: T[]): T[] => {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
 export const fetchDancePhotos = async (): Promise<Photo[]> => {
   const response = await fetch(`${BASE}/`, {
     headers: { Accept: 'application/json' },
@@ -35,11 +45,10 @@ export const fetchDancePhotos = async (): Promise<Photo[]> => {
 
   const items = ListingSchema.parse(await response.json());
 
-  return items
-    .filter((item) => !item.is_dir && isImage(item.name))
-    .sort((a, b) => b.mod_time.localeCompare(a.mod_time))
-    .map((item) => ({
-      name: item.name,
-      src: `${BASE}/${encodeURIComponent(item.name)}`,
-    }));
+  const images = items.filter((item) => !item.is_dir && isImage(item.name));
+
+  return shuffle(images).map((item) => ({
+    name: item.name,
+    src: `${BASE}/${encodeURIComponent(item.name)}`,
+  }));
 };
