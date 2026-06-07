@@ -1,5 +1,6 @@
-import { Link } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from './Link';
+import ArrowLeftIcon from './icons/ArrowLeftIcon';
 import { fetchDancePhotos } from './dance';
 
 const DanceGallery = () => {
@@ -15,11 +16,11 @@ const DanceGallery = () => {
   return (
     <div className="min-h-dvh bg-stone-950 text-neutral-300">
       <header className="sticky top-0 z-10 flex items-center gap-2 bg-stone-950/80 px-4 py-3 text-sm tracking-wide backdrop-blur">
-        <Link
-          to="/"
-          className="opacity-70 transition-opacity hover:opacity-100"
-        >
-          ← Étienne Robert
+        <Link href="/" className="inline-flex items-center gap-1.5">
+          <span className="w-[1em]">
+            <ArrowLeftIcon />
+          </span>
+          Étienne Robert
         </Link>
         <span className="opacity-30">/</span>
         <span>Dance</span>
@@ -43,7 +44,7 @@ const DanceGallery = () => {
               <img
                 key={photo.name}
                 src={photo.src}
-                alt={photo.alt}
+                alt={photo.name}
                 loading="lazy"
                 className="mb-2 block w-full break-inside-avoid rounded"
               />
