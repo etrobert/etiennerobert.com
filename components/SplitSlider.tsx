@@ -143,7 +143,7 @@ const SplitSlider = () => {
               href="https://www.instagram.com/thesoft.emperor"
               icon={<InstagramIcon />}
             />
-            <IconLink to="/dance" label="Portfolio" icon={<ImageIcon />} />
+            <IconLink to="/dance" label="Gallery" icon={<ImageIcon />} />
           </div>
         </div>
       </div>
