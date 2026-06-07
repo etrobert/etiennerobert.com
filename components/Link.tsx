@@ -2,28 +2,20 @@ import { Link as RouterLink } from 'react-router';
 
 import { ComponentProps } from 'react';
 
-// Single link primitive for the whole app: internal paths route through
-// react-router, everything else is a plain anchor. Callers always pass `href`.
-export const Link = ({
-  children,
-  className,
-  href,
-  ...props
-}: ComponentProps<'a'>) => {
-  const classes =
-    'opacity-80 transition-opacity duration-300 hover:opacity-100 ' +
-    (className ?? '');
+type Props = Omit<ComponentProps<'a'>, 'href'> & { href: string };
 
-  if (href?.startsWith('/'))
-    return (
-      <RouterLink to={href} className={classes} {...props}>
-        {children}
-      </RouterLink>
-    );
-
-  return (
-    <a href={href} className={classes} {...props}>
-      {children}
-    </a>
-  );
-};
+// Single link primitive for the whole app. react-router's Link already renders
+// a plain anchor with native browser navigation for absolute/external/mailto
+// URLs, so one code path covers internal routes and external links alike.
+export const Link = ({ children, className, href, ...props }: Props) => (
+  <RouterLink
+    to={href}
+    className={
+      'opacity-80 transition-opacity duration-300 hover:opacity-100 ' +
+      (className ?? '')
+    }
+    {...props}
+  >
+    {children}
+  </RouterLink>
+);
