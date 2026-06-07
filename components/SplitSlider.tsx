@@ -4,6 +4,7 @@ import LinkedinIcon from './icons/LinkedinIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import IconLink from './IconLink';
 import ArrowsHorizontalIcon from './icons/ArrowsHorizontalIcon';
+import ImageIcon from './icons/ImageIcon';
 import MailIcon from './icons/MailIcon';
 import { useBoundingRect } from './useBoundingRect';
 
@@ -107,11 +108,13 @@ const SplitSlider = () => {
             <IconLink
               label="Github"
               href="https://github.com/etrobert"
+              target="_blank"
               icon={<GithubIcon />}
             />
             <IconLink
               label="LinkedIn"
               href="https://www.linkedin.com/in/etienne-robert-dev/"
+              target="_blank"
               icon={<LinkedinIcon />}
             />
           </div>
@@ -135,12 +138,19 @@ const SplitSlider = () => {
             <IconLink
               label="Mail"
               href="mailto:etiennerobert33@gmail.com"
+              target="_blank"
               icon={<MailIcon />}
             />
             <IconLink
               label="Instagram"
               href="https://www.instagram.com/thesoft.emperor"
+              target="_blank"
               icon={<InstagramIcon />}
+            />
+            <IconLink
+              href="/dance/gallery"
+              label="Gallery"
+              icon={<ImageIcon />}
             />
           </div>
         </div>

@@ -1,0 +1,12 @@
+import { Routes, Route } from 'react-router';
+import SplitSlider from './SplitSlider';
+import DanceGallery from './DanceGallery';
+
+const App = () => (
+  <Routes>
+    <Route path="/" element={<SplitSlider />} />
+    <Route path="/dance/gallery" element={<DanceGallery />} />
+  </Routes>
+);
+
+export default App;

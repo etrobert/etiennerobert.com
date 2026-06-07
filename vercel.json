@@ -7,6 +7,10 @@
     {
       "source": "/stats/api/send",
       "destination": "https://umami.etiennerobert.com/api/send"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

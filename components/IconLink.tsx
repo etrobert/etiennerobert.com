@@ -6,12 +6,13 @@ type Props = {
   href: string;
   icon: ReactNode;
   label: string;
+  target?: string;
 };
 
-const IconLink = ({ href, icon, label }: Props) => (
+const IconLink = ({ href, icon, label, target }: Props) => (
   <Link
-    target="_blank"
     href={href}
+    target={target}
     className="flex flex-col items-center gap-0.5"
   >
     <span className="w-[2em]">{icon}</span>
