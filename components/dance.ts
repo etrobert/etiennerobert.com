@@ -24,7 +24,16 @@ const isImage = (name: string) => {
 export type Photo = {
   name: string;
   src: string;
+  alt: string;
 };
+
+// Filenames are the only metadata we have, so derive a readable label from
+// them for alt text: drop the extension and turn separators into spaces.
+const altFromName = (name: string) =>
+  name
+    .replace(/\.[^.]+$/, '')
+    .replace(/[-_]+/g, ' ')
+    .trim();
 
 export const fetchDancePhotos = async (): Promise<Photo[]> => {
   const response = await fetch(`${BASE}/`, {
@@ -41,5 +50,6 @@ export const fetchDancePhotos = async (): Promise<Photo[]> => {
     .map((item) => ({
       name: item.name,
       src: `${BASE}/${encodeURIComponent(item.name)}`,
+      alt: altFromName(item.name),
     }));
 };

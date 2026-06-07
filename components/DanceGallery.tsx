@@ -43,7 +43,7 @@ const DanceGallery = () => {
               <img
                 key={photo.name}
                 src={photo.src}
-                alt=""
+                alt={photo.alt}
                 loading="lazy"
                 className="mb-2 block w-full break-inside-avoid rounded"
               />
